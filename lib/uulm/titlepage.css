@@ -1,0 +1,26 @@
+h1{
+	font-weight: 400 !important;
+	letter-spacing: 0 !important;
+}
+
+h2{
+	font-weight: 400 !important;
+	letter-spacing: 0 !important;
+}
+
+#author{
+	font-size:18px !important;
+	bottom:1.5% !important;  
+	/* top:85% !important; */
+}
+
+#subtitle {
+	top:85%;
+	bottom:0%;
+	
+	font-size:28px;
+}
+
+.slides.template-uulm-in a{
+	text-decoration:underline;
+}

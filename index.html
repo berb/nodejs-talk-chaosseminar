@@ -104,30 +104,8 @@ JavaScript outside your browser</title>
 
 				</p>
 				</div>
-			</article>			
-			<article>
-				<h3>Background</h3>
-				<div style="width:80%">
-				<p></p>
-				<p>
-				<img src="assets/images/berb.png" style="border: 1px solid black; float:right; margin: 10px">
-
-				<span style="font-weight:bold;" class="med-color">IOException.de</span><br/>
-				Student @ Ulm University<br/>
-				Computer Science and Media
-				</p>
-				<p><span style="font-weight:bold;">Interests:</span> web technologies, scalabale architectures, distributed systems and mobile/ubiquitous computing</p>
-				<div style="clear:both;"></div>
-				<p><span style="font-weight:bold;">Contact:</span><br/>
-
-				www: <a href="http://www.benjamin-erb.de/">benjamin-erb.de</a> / <a href="http://www.ioexception.de/">ioexception.de</a><br/>
-				twitter: <a href="http://www.twitter.com/b_erb">@b_erb</a><br/>
-				g+: <a href="http://www.twitter.com/b_erb">b.erb.io/+</a><br/>
-				<br/>
-
-				</p>
-				</div>
-			</article>			
+			</article>	
+			<!-- separate IOException.de slide? -->			
 		</section>
 		
 		<section>
@@ -141,13 +119,458 @@ JavaScript outside your browser</title>
 
 		
 		<section>
-			<header>JavaScript #101</header>
+			<header>JavaScript #101</header>			
 			
 			<article class="fill">
 				<h1>JavaScript #101</h1>
 				<h3>todo</h3>				
 			</article>
 			
+			<article>
+				<h3>History</h3>
+				<ul>
+					<li></li>
+				</ul>
+			</article>
+			
+			<article>
+				<h3>Properties of the language</h3>
+				<ul>
+					<li></li>
+				</ul>
+			</article>
+
+
+			<article>
+				<h3>Syntax</h3>
+
+				<pre>
+if (bedingung) {
+  ...
+} else {
+  ...
+}
+</pre>
+
+				<pre>
+while (cond) {
+ ...
+}
+</pre>
+
+				<pre>
+for (start; cond; iteration) {
+  ...
+}
+</pre>
+			</article>			
+
+
+			<article>
+				<h3>Types: Simple Types</h3>
+				<ul>
+					<li>Numbers</li>
+					<li>Strings</li>
+					<li>Booleans</li>
+					<li>undefined</li>
+				</ul>
+
+				-> immutable
+			</article>
+
+
+
+			<article>
+				<h3>Types: Objects</h3>
+				<ul>
+					<li>Collections of key/value pairs</li>
+					<li>Arrays, Functions, RegEx, etc.</li>
+					<!-- mutable -->
+				</ul>
+			</article>
+
+
+			<article>
+				<h3>Objectliterals</h3>
+				<div>
+<pre>
+var song = {
+   "artist": "yamantaka",
+   "title": "queens",
+
+   "album": {
+      "year": 2011,
+      "title": "sonic titan"
+   }
+}
+</pre>
+</div>
+			</article>
+
+
+
+			<article>
+				<h3>Accessing properties</h3>
+				<pre>
+song.artist
+song["artist"]
+song.foo // undefined
+</pre>
+
+			Deleting properties
+							<pre>
+delete song.artist
+</pre>			
+
+<!--				
+Der Prototyp scheint dann durch, falls vorhanden!
+Bei Zugriff auf song.artist wird jetzt im Prototyp nachgeschaut!
+-->
+
+			</article>
+
+			<article>
+				<h3>Enumeration</h3>
+
+				<div class='build'>
+				<pre>
+for (var key in object) {
+  console.log( object[key] );
+}
+</pre>
+Cascade:
+<pre>
+	...
+</pre>
+				</div>
+			</article>
+		
+					
+
+				<article>
+					<h3>Objekte erstellen</h3>
+					<pre>
+var Auto = function(brand) {
+  this.wheels = 2;
+  this.brand = brand;
+
+  this.motor = function() {
+    return "brumm";
+  }   
+}
+
+ford = new Auto("Ford");
+</pre>
+
+					Konstruktor: Eine Funktion, die mit "new" initialisiert wird.
+				</article>			
+
+
+			<article>
+				<h3>Vordefinierte Objekte</h3>
+				<ul>
+					<li>Das globale Objekt</li>
+					<li>"Object" als allg. Prototyp</li>
+					<li>Function, Array, String, Boolean,
+					Number, Math, Date, RegExp</li>
+				</ul>
+
+				<div class='build'>
+				<br />
+				<p>window und document sind keine Elemente der Sprache!</p>
+				</div>
+			</article>
+
+			<article>
+				<h3>Arrays</h3>
+
+				<ul>
+					<li>Object with "Array"-Charakteristics</li>
+					<li>Functions like length</li>
+				</ul>
+
+				<div class='build'>
+				<pre>
+var nix = [];
+
+var mehr = ["eins", "zwo", "drei"];
+mehr.length // 3
+</pre>
+
+				<pre>
+delete mehr[1];
+mehr.length // 3, mehr = ["eins", , "drei"];
+</pre>
+<p>Besser: splice(2,3)</p>
+				</div>
+			</article>
+
+			<article>
+				<h3>Variablen</h3>
+				<pre>
+var foo = "bar";
+
+var foo = function() {
+  // kein zugriff von außen möglich!
+  var a = 3; 
+  var bar = function() {
+    return this.a + 2:
+  }
+}
+</pre>
+
+				Nicht per "var" deklarierte Variablen werden an
+				das globale Objekt gebunden!
+			</article>
+
+			<article>
+				<h3>this-Problematik</h3>
+				<p>Worauf this zeigt hängt davon ab, wie die Funktion aufgerufen wird!</p>
+				<!-- Nicht davon wie, wo oder wann sie definiert wurde! -->
+<div class='build'>
+<pre>
+// Aufruf als Methode eines Objekts
+var objekt = {
+  prop: 37,
+
+  foo: function() {
+    return this.prop;
+  }
+};
+</pre>
+<pre>
+console.log(objekt.foo()); // 37
+</pre>
+</div>
+</article>
+
+<article>
+	<h3>this-Problematik</h3>
+<div class='build'>
+
+<div>
+<pre>
+function Foo(){
+  this.a = 37;
+  return {a:38};
+}
+
+// Aufruf als Konstruktor
+// this hängt am Objekt, das konstruiert wurde
+ojekt = new Foo();
+</pre>
+</div>
+
+<pre>
+console.log(objekt.a); // 38	
+</pre>
+</div>
+
+			</article>
+
+
+			<article>
+				<h3>Functions</h3>
+				<q style="margin-top:50px; margin-bottom:30px">Functions as first-class objects</q>
+
+				<div class='build'>
+					<ul>
+						<li>Variablen, Parameter, Rückgabewerte</li>
+						<li>zur Laufzeit erstellbar</li>
+						<li>eigene Identität unabhängig vom Namen</li>
+					</ul>
+				</div>
+
+				<div class='source'>http://de.wikipedia.org/wiki/First-Class-Objekt</div>
+			</article>
+
+
+
+			<article>
+				<h3>Callbacks</h3>
+									<p>Naive</p>
+									<pre style='font-size:19px;'>
+task = create_task();
+result = work_synchronously(task)
+show(result);
+</pre>
+
+				<div class='build'>
+					<p>Better: Asynchron + Callback-Functions</p>
+					<pre style='font-size:19px;'>
+task = create_task();
+result = work_asynchronously(task, function(result) {
+	show(result);
+});</pre>
+				</div>
+			</article>
+
+			<article>
+				<h3>Prototypes</h3>
+
+				<ul>
+					<li>"Inheritance" in JavaScript</li>
+					<li>Accessing a non-existing property results in a lookup on the prototype</li>
+					<li>Funktions, Arrays, etc. have the prototype "Object"</li>
+				</ul>
+			</article>
+
+			<article>
+				<h3>Prototypes</h3>
+				<!-- hasOwnProperty? -->
+				<div class='build'>
+				<pre>
+var auto = {
+  wheels: 4,
+  tires: true
+}
+</pre>
+<pre>
+var Motorcycle = {
+  this.wheels = 2;
+}
+Motorcycle.prototype = auto;
+var ducati = new Motorcycle();
+</pre>
+<pre style='margin-bottom:10px;'>
+console.log(ducati.wheels); // 2
+</pre>
+<pre style='margin-bottom:10px;'>delete ducati.wheels</pre>
+<pre>console.log(ducati.wheels); // 4
+</pre>	
+</div>	
+			</article>
+			
+			<article>
+				<h3>Error-Handling</h3>
+
+			</article>			
+			
+			<article>
+				<h3>AJAX</h3>
+			
+				<ul>
+					<li><a href="http://www.commonjs.org">www.commonjs.org</a></li>
+				</ul>
+			</article>			
+			
+			<article>
+				<h3>CommonJS</h3>
+			
+				<ul>
+					<li><a href="http://www.commonjs.org">www.commonjs.org</a></li>
+				</ul>
+			</article>
+
+			<article>
+				<h3>The Bad Parts</h3>
+				<ul>
+					<li>global Object</li>
+					<li>eval(), this, typeof</li>
+					<li>Where's my Unicode?</li>
+				</ul>
+			</article>
+
+			<article>
+				<h3>The Good Parts</h3>
+				<ul>
+					<li></li>
+				</ul>
+			</article>
+
+			<article>
+				<h3>Security?</h3>
+				<ul>
+					<li>Same origin policy</li>					
+					<li>XSS</li>
+				</ul>
+
+			</article>
+		
+		<section>
+
+		<section>
+			<header>JSON</header>
+
+			<article>
+				<p>
+					<img class='centered' src='assets/images/memes/dawg.jpg' style='width:600px;'>
+				</p>
+			</article>
+
+			<article>
+				<p>
+					<img class='centered' src='assets/images/memes/crockford.jpg' style='width:500px;'>
+				</p>
+			</article>
+
+			<article class="fill">
+				<h1>JSON</h1>
+				<h3>todo</h3>				
+			</article>
+			
+			<article>
+				<h3>JSON</h3>
+				<ul>
+					<li>JavaScript Object Notation</li>
+					<li>Lightweight Datenformat</li>
+					<li>Subset of JavaScript</li>
+					<li>Objects, Arrays, Strings, Numbers, Booleans, null</li>
+				</ul>
+			</article>
+
+			<article>
+				<h3>JSON Types</h3>
+				<pre>
+// Objects
+{ foo: "bar", year: 2012 }					
+
+// Arrays
+[ "a", "b", "c" ]
+
+// Strings
+"john doe"
+
+// Numbers
+42 2e+6 2.34
+</pre>
+			</article>			
+
+			<article>
+				<h3>JSON</h3>
+
+				<pre>
+{
+  "Some": "String",
+  "Large": 2e+6,
+  "Small": 42
+
+  "An Object": {
+    "An Array": [ "Un", "Dos", "Tres" ],
+    "Empty Array": [],
+    "Nothing": null
+  }
+}					
+</pre>
+			</article>
+
+
+			<article>
+				<h3>JSON usage in JavaScript</h3>
+				<!-- eval() is evil! -->
+				<!-- JSONView Firefox Extension -->
+
+				<pre>
+// Object as a JSON-String
+JSON.stringify(  {zwei: 2, drei: 3}  );
+</pre>
+
+<pre>
+// String as a JSON-Objekt
+var foo = '{"eins":1, "zwei":"2"}';
+var bar = JSON.parse(foo);
+</pre>
+			</article>		
 		</section>
 
 		<section>
@@ -202,20 +625,59 @@ JavaScript outside your browser</title>
 		<!-- -->
 		<section>
 			<article class="">
-				<h3>License</h3>
-				<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.</p>
-				<p>Title <a href="http://www.flickr.com/photos/bitzcelt/916823243">image</a> by <a href="http://www.flickr.com/photos/bitzcelt/">bitzcelt</a>, cc-by-nc-nd 2.0.</p>
-				<p>Icon set by <a href="http://www.picol.org">picol</a>, cc-by-sa 3.0.</p>
-
-			</article>	
-			
-			<article class="">
 				<h3>Softwared Used for This Talk</h3>
 				<ul>
 					<li>Slide deck: <a href="https://github.com/berb/html5slides-uulm/">github.com/berb/html5slides-uulm</a></li>
 					<li>TODO</li>
 				</ul>
-			</article>				
+			</article>
+			
+			<article class="smaller">
+				<h3>Reading Recommendations – Books</h3>
+				<p><img src="assets/images/books/javascript_the_good_parts.jpg" style="border:1px solid #999; 
+					margin:5px; margin-right:20px; float:left; height:228px;"/>
+				Douglas Crockford<br/>
+				<strong>JavaScript: The Good Parts </strong><br/>
+				2008, O'Reilly Media, 170 pages<br/>
+				ISBN: 978-0-596-51774-8<br/>
+				 <div style="clear:both;" />
+				 </p>
+
+				<p><img src="assets/images/books/javascript-definitive-guide.jpg" style="border:1px solid #999; 
+					margin:5px; margin-right:20px; float:left; height:228px;"/>
+				David Flanagan<br/>
+				<strong>JavaScript: The Definitive Guide</strong><br/>
+				2011, O'Reilly Media, 1098 pages<br/>
+				ISBN: 978-0-596-80552-4<br/>
+				 <div style="clear:both;" />
+				 </p>
+
+			</article>
+						
+
+			<article>
+				<h3>Further Resources</h3>
+				<ul>
+					<li>
+						<a href="https://plus.google.com/111191895515210271225/posts/HN2ZTbf7Cgg"
+							title="node.js background papers">15 Papers you should read when interested in node.js's background</a>
+					</li>
+					
+					<li>
+						<a href="https://developer.mozilla.org/en/JavaScript">JavaScript at the Mozilla Developer Network</a></li>
+						
+					<li>
+						<a href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-262%20edition%205.1,%20June%202011.pdf">
+							ECMAScript Specification 5.1 (June 2011)</a></li>
+				</ul>
+			</article>						
+						
+			<article class="">
+				<h3>License</h3>
+				<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.</p>
+				<p>Title <a href="http://www.flickr.com/photos/bitzcelt/916823243">image</a> by <a href="http://www.flickr.com/photos/bitzcelt/">bitzcelt</a>, cc-by-nc-nd 2.0.</p>
+				<p>Icon set by <a href="http://www.picol.org">picol</a>, cc-by-sa 3.0.</p>
+			</article>			
 			
 			<article class="fill">
 				<h1>Thank you!</h1>

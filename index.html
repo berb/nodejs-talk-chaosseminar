@@ -62,20 +62,19 @@ JavaScript outside your browser</title>
 				<div style="width:80%">
 				<p></p>
 				<p>
-				<img src="assets/images/cmichi.png" style="border: 1px solid black; float:right; margin: 10px">
+				<img src="assets/images/michi.png" style="border: 1px solid black; float:right; margin: 10px">
 
 				<span style="font-weight:bold;" class="med-color">Michael
 				M&uuml;ller</span><br/>
 				Student @ Ulm University<br/>
 				Computer Science and Media
 				</p>
-				<p><span style="font-weight:bold;">Interests:</span> UNIX,
-				Web, Creative Coding</p>
+				<p><span style="font-weight:bold;">Interests:</span><br />
+				unix, web technologies, creative coding</p>
 				<div style="clear:both;"></div>
 				<p><span style="font-weight:bold;">Contact:</span><br/>
 
-				www: <a href="http://www.micha.elmueller.net/">micha.elmueller.net</a><br
-				/>
+				www: <a href="http://www.micha.elmueller.net/">micha.elmueller.net</a> / <a href="http://www.ioexception.de/">ioexception.de</a><br/>
 				twitter: <a href="http://www.twitter.com/cmichi">@cmichi</a><br/>
 				<br/>
 
@@ -130,16 +129,17 @@ JavaScript outside your browser</title>
 				<h3>History</h3>
 				<ul>
 					<li></li>
+					<li>..</li>
+					<li>WebKit</li>
 				</ul>
 			</article>
 			
 			<article>
-				<h3>Properties of the language</h3>
+				<h3>Language properties</h3>
 				<ul>
 					<li></li>
 				</ul>
 			</article>
-
 
 			<article>
 				<h3>Syntax</h3>
@@ -248,8 +248,9 @@ Cascade:
 					
 
 				<article>
-					<h3>Objekte erstellen</h3>
+					<h3>Creating objects</h3>
 					<pre>
+/* TODO: überarbeiten */
 var Auto = function(brand) {
   this.wheels = 2;
   this.brand = brand;
@@ -262,22 +263,22 @@ var Auto = function(brand) {
 ford = new Auto("Ford");
 </pre>
 
-					Konstruktor: Eine Funktion, die mit "new" initialisiert wird.
+					Constructor: Functions, which is initialized with "new".
 				</article>			
 
 
 			<article>
-				<h3>Vordefinierte Objekte</h3>
+				<h3>Predefined objects</h3>
 				<ul>
-					<li>Das globale Objekt</li>
-					<li>"Object" als allg. Prototyp</li>
+					<li>The Global-Object</li>
+					<li>"Object" as a Prototype</li>
 					<li>Function, Array, String, Boolean,
 					Number, Math, Date, RegExp</li>
 				</ul>
 
 				<div class='build'>
 				<br />
-				<p>window und document sind keine Elemente der Sprache!</p>
+				<p>window and document are no elements of the language!</p>
 				</div>
 			</article>
 
@@ -291,6 +292,7 @@ ford = new Auto("Ford");
 
 				<div class='build'>
 				<pre>
+/* TODO */
 var nix = [];
 
 var mehr = ["eins", "zwo", "drei"];
@@ -306,8 +308,9 @@ mehr.length // 3, mehr = ["eins", , "drei"];
 			</article>
 
 			<article>
-				<h3>Variablen</h3>
+				<h3>Variables</h3>
 				<pre>
+/* TODO */					
 var foo = "bar";
 
 var foo = function() {
@@ -319,12 +322,16 @@ var foo = function() {
 }
 </pre>
 
-				Nicht per "var" deklarierte Variablen werden an
-				das globale Objekt gebunden!
+				Variables declared with "var" will be bound to the local scope.
+				Otherwise to the global object.
 			</article>
 
 			<article>
-				<h3>this-Problematik</h3>
+				<h3>Scope</h3>
+			</article>
+
+			<article>
+				<h3>this-Problematic</h3>
 				<p>Worauf this zeigt hängt davon ab, wie die Funktion aufgerufen wird!</p>
 				<!-- Nicht davon wie, wo oder wann sie definiert wurde! -->
 <div class='build'>

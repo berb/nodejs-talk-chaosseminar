@@ -152,7 +152,7 @@ JavaScript outside your browser</title>
 			</article>
 			
 			<article>
-				<h3>Random words</h3>
+				<h3>Random facts</h3>
 				<ul>
 					<li>Brendan Eich, 1995</li>
 					<li>v1.8, 2008</li>
@@ -182,7 +182,6 @@ JavaScript outside your browser</title>
 					<li>Booleans</li>					
 				</ul>
 				</div>
-
 
 				<div style="float:left;padding-top:20px; margin-right:125px;">
 				<ul>
@@ -230,41 +229,25 @@ var song = {
 				</aside>
 			</article>
 			
-			
-
-			<article>
-				<h3>Predefined objects</h3>
-				<ul>
-					<li>The Global-Object</li>
-					<li>"Object" as a Prototype</li>
-					<li>Function, Array, String, Boolean,
-					Number, Math, Date, RegExp</li>
-				</ul>
-
-			</article>
-
-
 			<article>
 				<h3>Functions</h3>
-				<q style="margin-top:50px; margin-bottom:30px">Functions as first-class objects</q>
+				<q style="margin-top:50px; margin-bottom:30px">Functions as first-class citizens</q>
 
 				<div class='build'>
 					<ul>
-						<li>Variablen, Parameter, Rückgabewerte</li>
-						<li>zur Laufzeit erstellbar</li>
-						<li>eigene Identität unabhängig vom Namen</li>
+						<li>Variables, Argument, Return-Value</li>
+						<li>Creatable at run-time</li>
+						<li>Identity, independent from the name</li>
 					</ul>
 				</div>
 
-				<div class='source'>http://de.wikipedia.org/wiki/First-Class-Objekt</div>
+				<div class='source'>http://en.wikipedia.org/wiki/First-class_citizen</div>
 			</article>
 
-
-
 			<article>
-				<h3>Callbacks</h3>
-									<p>Naive</p>
-									<pre style='font-size:19px;'>
+				<h3>Callbacks?</h3>
+				<p>Naive</p>
+				<pre style='font-size:19px;'>
 task = create_task();
 result = work_synchronously(task)
 show(result);
@@ -284,51 +267,54 @@ result = work_asynchronously(task, function(result) {
 				<h3>Prototypes</h3>
 
 				<ul>
-					<li>"Inheritance" in JavaScript</li>
-					<li>Accessing a non-existing property results in a lookup on the prototype</li>
-					<li>Funktions, Arrays, etc. have the prototype "Object"</li>
+					<li>"Inheritance"</li>
+					<li>Lookup chain</li>
+					<li>Function, Array, etc. have prototype "Object"</li>
 				</ul>
+				
+				
+				<aside>
+					<p>non-existing property results in a lookup on the prototype</p>
+					<p>hasOwnProperty()</p>
+				</aside>
 			</article>
-
-			<article>
-				<h3>Prototypes</h3>
-				<!-- hasOwnProperty? -->
-				<div class='build'>
-				<pre>
-var auto = {
-  wheels: 4,
-  tires: true
-}
-</pre>
-<pre>
-var Motorcycle = {
-  this.wheels = 2;
-}
-Motorcycle.prototype = auto;
-var ducati = new Motorcycle();
-</pre>
-<pre style='margin-bottom:10px;'>
-console.log(ducati.wheels); // 2
-</pre>
-<pre style='margin-bottom:10px;'>delete ducati.wheels</pre>
-<pre>console.log(ducati.wheels); // 4
-</pre>	
-</div>	
-			</article>
-			
 			
 			<article>
 				<h3>Interesting language constructions</h3>
-				<ul>
-					<li></li>
-				</ul>
-			</article>
-			
-			
-			<article>
-				<h3>Error-Handling</h3>
 
-			</article>			
+			<p>Cascading</p>
+<pre>
+getBox()
+  .setPosition(30, 40)
+  .setBorder(1)
+  .setVisible(true)
+</pre>
+			</article>
+	
+			<article>
+				<h3>The Bad Parts</h3>
+				<ul>
+					<li>global Object</li>
+					<li>eval(), this, typeof</li>
+				</ul>
+				
+				<aside>
+					<p>typeof inconsistences</p>
+				</aside>
+			</article>
+
+			<article>
+				<h3>The Good Parts</h3>
+				<ul>
+					<li>Functions as first class objects (Callback functions, Closure)</li>
+					<li>Prototypal inheritance</li>
+					<li>Objectliteral &amp; Arrayliteral syntax</li>
+				</ul>
+				
+				<aside>
+					<p>Dynamic objects: add, delete members anytime. Inheritance.</p>
+				</aside>
+			</article>					
 						
 			<article>
 				<h3>CommonJS</h3>
@@ -337,24 +323,8 @@ console.log(ducati.wheels); // 2
 					<li><a href="http://www.commonjs.org">www.commonjs.org</a></li>
 				</ul>
 			</article>
-
-			<article>
-				<h3>The Bad Parts</h3>
-				<ul>
-					<li>global Object</li>
-					<li>eval(), this, typeof</li>
-					<li>Where's my Unicode?</li>
-				</ul>
-			</article>
-
-			<article>
-				<h3>The Good Parts</h3>
-				<ul>
-					<li></li>
-				</ul>
-			</article>
-
 		<section>
+			
 
 		<section>
 			<header>JSON</header>

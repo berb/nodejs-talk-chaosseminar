@@ -143,14 +143,43 @@ JavaScript outside your browser</title>
 				<h1>Let's build a network or distributed application!</h1>
 			</article>			
 			
-			<article class="">
-				<h3>Programming Network/Distributed Applications</h3>
-				<ul>
-					<li>I/O operations &amp; computations</li>
-					<li>communication &amp; protocols</li>
-				</ul>
-			</article>			
 			
+			<article class="">
+				<h3>Distributed Application – Building Blocks (1)</h3>
+				<dl class="#build">
+					<dt class="med-color">A program</dt>
+					<dd>is the code you write. </dd>
+					
+					<dt class="med-color">A process</dt>
+					<dd>is what you get when you run a <span class="med-color">program</span>.</dd>
+					
+					<dt class="med-color">A message</dt>
+					<dd>is used to communicate between <span class="med-color">processes</span>.</dd>
+					
+					<dt class="med-color">A packet</dt>
+					<dd>is a fragment of a <span class="med-color">message</span> that might travel on a wire.</dd>
+					
+					<dt class="med-color">A protocol</dt>
+					<dd>is a formal description of <span class="med-color">message</span> formats and the rules that two <span class="med-color">processes</span> must follow in order to exchange those <span class="med-color">messages</span>.</dd>
+					
+				</dl>
+				<div class='source'>Source: <a href="http://code.google.com/intl/de/edu/parallel/dsd-tutorial.html">Introduction to Distributed System Design (Google Code University)</a></div>				
+			</article>
+							
+			<article class="">
+				<h3>Distributed Application – Building Blocks (2)</h3>
+				<dl class="#build">
+					<dt class="med-color">A network</dt>
+					<dd>is the infrastructure that connects different machines via communication links. </dd>
+					
+					<dt class="med-color">A component</dt>
+					<dd>can be a process or any piece of hardware required to run a  <span class="med-color">process</span>, support communications between  <span class="med-color">processes</span>, store data, etc.</dd>					
+					<dt class="med-color">A distributed system</dt>
+					<dd>is an application that executes a collection of <span class="med-color">protocols</span> to coordinate the actions of multiple <span class="med-color">processes</span> on a <span class="med-color">network</span>, such that all <span class="med-color">components</span> cooperate together to perform a single or small set of related tasks.</dd>
+				</dl>
+				<div class='source'>Source: <a href="http://code.google.com/intl/de/edu/parallel/dsd-tutorial.html">Introduction to Distributed System Design (Google Code University)</a></div>				
+			</article>
+						
 			<article class="fill">
 				<h1>Challenge:<br/>Handling I/O</h1>
 			</article>			

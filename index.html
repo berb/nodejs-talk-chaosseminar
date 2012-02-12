@@ -424,8 +424,6 @@ console.log(ducati.wheels); // 2
 
 			<article>
 				<h3>JSON usage in JavaScript</h3>
-				<!-- eval() is evil! -->
-				<!-- JSONView Firefox Extension -->
 
 				<pre>
 // Object as a JSON-String
@@ -438,6 +436,11 @@ var foo = '{"eins":1, "zwei":"2"}';
 var bar = JSON.parse(foo);
 </pre>
 			</article>		
+			
+			<aside>
+				<p>eval() is evil: JSON.stringify() JSON.parse() since 2009 element of the ECMAScript specification</p>
+				<p>Hint: JSONView Firefox Extension</p>				
+			</aside>
 		</section>
 
 

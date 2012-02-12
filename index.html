@@ -574,8 +574,45 @@ server.listen(config.port, 'localhost');
 			<article class="fill">
 				<h3>socket.io</h3>
 				
+				<q style="margin-top:50px; font-size:30px;">
+					Socket.IO aims to make realtime apps possible in every browser and mobile 
+					device [&hellip;]
+				</q>
 				
+				<div class="source">http://socket.io/</div>
 			</article>
+			
+			<article class="fill">
+				<h3>socket.io</h3>
+				<div class='build'>
+
+<pre style="margin-top:0px; font-size:17px;">// Server
+var io = require('socket.io').listen(80);
+
+io.sockets.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
+});
+</pre>	
+
+<pre style="margin-top:-20px; font-size:17px;">
+// Client 
+&lt;script src="/socket.io/socket.io.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  var socket = io.connect('http://localhost');
+  socket.on('news', function (data) {
+    console.log(data);
+    socket.emit('my other event', { my: 'data' });
+  });
+&lt;/script&gt;
+</pre>
+
+</div>
+<div class="source">http://socket.io/</div>
+			
+			</article>	
 			
 			<article class="fill">
 				<h3>async</h3>
@@ -608,10 +645,10 @@ server.listen(config.port, 'localhost');
 var jsdom = require('jsdom');
 
 jsdom.env({
-    html: 'http://reddit.com/'
-  , scripts: ['http://code.jquery.com/jquery-1.7.1.min.js']
+  html: 'http://reddit.com/',
+  scripts: ['http://code.jquery.com/jquery-1.7.1.min.js'],
 
-  , done: function(errors, window) {
+  done: function(errors, window) {
       // ?
   }
 });
@@ -624,17 +661,16 @@ jsdom.env({
 var jsdom = require('jsdom');
 
 jsdom.env({
-    html: 'http://reddit.com/'
-  , scripts: ['http://code.jquery.com/jquery-1.7.1.min.js']
+  html    : 'http://reddit.com/',
+  scripts : ['http://code.jquery.com/jquery-1.7.1.min.js'],
 
-  , done: function(errors, window) {
-    var $ = window.$;
+  done: function(errors, window) {
+	
     var cnt = 0;
-
-    $("a.title").each(function() {
-      if (cnt++ < 3)
-        console.log(  $(this).text()  );
+    window.$("a.title").each(function() {
+      if (cnt++ < 3) console.log(window.$(this).text());
     });    
+
   }
 });
 </pre>

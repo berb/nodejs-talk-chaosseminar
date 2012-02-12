@@ -280,16 +280,17 @@ var song = {
 			</article>
 
 			<article>
-				<h3>Callbacks?</h3>
-				<p>Naive</p>
+				<h3>Callback-Functions</h3>
+				<p>Synchronous</p>
 				<pre style='font-size:19px;'>
 task = create_task();
 result = work_synchronously(task)
+// finger twiddling?
 show(result);
 </pre>
 
 				<div class='build'>
-					<p>Better: Asynchron + Callback-Functions</p>
+					<p>Asynchronous</p>
 					<pre style='font-size:19px;'>
 task = create_task();
 result = work_asynchronously(task, function(result) {
@@ -323,14 +324,6 @@ getBox()
   .setPosition(30, 40)
   .setBorder(1)
   .setVisible(true)
-</pre>
-			</article>
-	
-			<article>
-				<h3>Interesting language constructions</h3>
-
-			<p>Promises</p>
-<pre>
 </pre>
 			</article>
 	
@@ -518,7 +511,6 @@ var bar = JSON.parse(foo);
 			
 			<article class="fill">
 				<h3>TCP Echo server</h3>				
-				
 <pre>
 var net = require('net');
 
@@ -529,25 +521,19 @@ var server = net.createServer(function (socket) {
 
 server.listen(1337, "127.0.0.1");
 </pre>
-
+<div  class="build">
+<h3>Enhancing the example?</h3>
+</div>
 				<div class='source'>
 					http://nodejs.org/
 				</div>
 
 				<aside>
-					<p>From here start modifying the code to build a chat</p>
+					<p>From here start modifying the code to build a chat on top</p>
 					<p>Explaining Error-Handling while coding?</p>
 				</aside>
 			</article>
-			
-			<article class="fill">
-				<h3>Building a simple chat on top</h3>
-				
-				<ul>
-					<li></li>
-				</ul>
-			</article>			
-		
+					
 			<article class="fill">
 				<h3>Structure: Modules</h3>
 <pre>

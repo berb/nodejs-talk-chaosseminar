@@ -13,6 +13,10 @@ server.on('connection', function (conn) {
   conn.on('data', function (data) {
     broadcast(conn, data);
   });
+
+  conn.on('end', function() {
+    clients.splice(clients.indexOf(conn, 1));
+  })
 });
 
 function broadcast(sender, data) {

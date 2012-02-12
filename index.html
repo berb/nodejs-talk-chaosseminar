@@ -383,6 +383,8 @@ getBox()
 				<p>
 					<img class='centered' src='assets/images/memes/crockford.jpg' style='width:500px;'>
 				</p>
+				
+				<div class='source'>http://memegenerator.net/instance/12711521</div>
 			</article>
 
 			<article class="fill">
@@ -546,7 +548,7 @@ server.listen(1337, "127.0.0.1");
 			</article>			
 		
 			<article class="fill">
-				<h3>Structure your project</h3>
+				<h3>Structure: Modules</h3>
 <pre>
 // config.js
 exports.echoServer = {port: 1337}
@@ -557,6 +559,15 @@ exports.echoServer = {port: 1337}
 var config = require('./config.js')
 server.listen(config.port, 'localhost');
 </pre>
+			</article>
+					
+			<article class="fill">
+				<h3>Concurrency</h3>
+				
+				TODO<br />
+				
+				falls das vorher noch nicht kam: 
+				child_process.fork() bzw. http://nodejs.org/docs/latest/api/cluster.html
 			</article>
 					
 			<article class="fill">
@@ -644,25 +655,9 @@ jsdom.env({
 			
 			<article class="fill">
 				<h1>Conclusion</h1>
-				<h3>todo</h3>				
+				<h3>let's wrap it up</h3>				
 			</article>
-					
-			<article class="">
-				<h3>Used Cases</h3>			
-				
-				<ul>
-					<li></li>
-				</ul>
-			</article>					
-					
-			<article class="">
-				<h3>Used by</h3>			
-				
-				<ul>
-					<li></li>
-				</ul>				
-			</article>					
-					
+			
 			<article class="">
 				<h3>When to use?</h3>
 				TODO
@@ -675,7 +670,31 @@ jsdom.env({
 					* do not use for CPU intense tasks, better to fork subprocess
 					* debugging-intense task? 
 				-->
-			</article>				
+			</article>
+						
+			<article class="">
+				<h3>Use Cases</h3>			
+				
+				<q style="margin-top:50px; font-size:30px;">
+					The popular Node.js runtime environment is built into webOS 2.1, 
+					which means that you can now develop not just webOS apps but 
+					also services in JavaScript.
+				</q>
+				<!-- <div class="author">HP webOS 2.1</div> -->
+
+				<div class="source">https://developer.palm.com/index.php?id=2109&view=article</div>
+				
+			</article>					
+					
+			<article class="">
+				<h3>Also used by</h3>			
+
+				Random Logos?
+				
+				<ul>
+					<li></li>
+				</ul>				
+			</article>							
 		</section>
 
 		

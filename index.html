@@ -39,7 +39,7 @@ JavaScript outside your browser</title>
 <body style='display: none'>
 
 	<div class='slides layout-normal template-uulm-in'>
-		<section>
+		<section>			
 			<article class='title-slide'>
 
 				<h1 id="title">node.js</h1>
@@ -86,7 +86,7 @@ JavaScript outside your browser</title>
 					</div>
 
 					<div style="float:left">
-						<a href="http://www.micha.elmueller.net/">micha.elmueller.net</a>
+						<a href="http://www.micha.elmueller.net/">micha.elmueller.net</a><br />
 						<!-- / <a href="http://www.ioexception.de/">ioexception.de</a><br/> -->
 
 						<a href="http://www.twitter.com/cmichi">@cmichi</a>
@@ -95,7 +95,6 @@ JavaScript outside your browser</title>
 				</div>
 			</article>
 			
-					
 			<article>
 				<h3>Background</h3>
 								<div style="width:80%">
@@ -111,7 +110,7 @@ JavaScript outside your browser</title>
 				<div style="clear:both;"></div>
 				<p><span style="font-weight:bold;">Contact:</span><br/>
 
-				www: <a href="http://www.benjamin-erb.de/">benjamin-erb.de</a>
+				www: <a href="http://www.benjamin-erb.de/">benjamin-erb.de</a><br />
 				<!-- 
 					/ <a href="http://www.ioexception.de/">ioexception.de</a><br/> 
 					wuerde ich dann auf der naechsten slide erwaehnen, wenn es hier
@@ -174,11 +173,15 @@ JavaScript outside your browser</title>
 					<li>Brendan Eich, 1995</li>
 					<li>v1.8, 2008</li>
 					<li>ECMAScript</li>
+
+					<br />
+					<li>Script language</li>
+					<li>Parse-time vs. Run-time</li>
 				</ul>
 				
 				<aside>
 					<p>hint on palm, ms desktop apps in the future, etc.</p>
-					<p>Many money put into optimization &amp; development in the last years</p>
+					<p>Many maney money put into optimization &amp; development in the last years (Chrome, Mozilla: Tracemonkey)</p>
 				</aside>
 			</article>
 			
@@ -263,11 +266,16 @@ var song = {
 					<ul>
 						<li>Variables, Argument, Return-Value</li>
 						<li>Creatable at run-time</li>
-						<li>Identity, independent from the name</li>
+						<li>Identity: independent from name</li>
 					</ul>
 				</div>
 
 				<div class='source'>http://en.wikipedia.org/wiki/First-class_citizen</div>
+				
+				<aside>
+					<p>Note: JS is not exactly a "functional language" because the whole construction is
+						completely based around Prototypes and dynamic objects</p>
+				</aside>
 			</article>
 
 			<article>
@@ -325,7 +333,6 @@ getBox()
 </pre>
 			</article>
 	
-	
 			<article>
 				<h3>The Bad Parts</h3>
 				<ul>
@@ -362,7 +369,7 @@ getBox()
 		<section>
 			
 
-<!-- -->
+		<!-- -->
 		<section>
 			<header>JSON</header>
 
@@ -471,16 +478,17 @@ var bar = JSON.parse(foo);
 			<article class="">
 				<h3>The Platform</h3>			
 				node.js, v8 
-				TODO
+				TODO				
 			</article>
 
 			<article class="">
 				<h3>API Functions</h3>			
 				
 			</article>
-
 		</section>
 
+
+		<!-- -->
 		<section>
 			<header>Programming with node.js</header>
 			
@@ -523,6 +531,13 @@ server.listen(1337, "127.0.0.1");
 				</aside>
 			</article>
 			
+			<article class="fill">
+				<h3>Building a simple chat on top</h3>
+				
+				<ul>
+					<li></li>
+				</ul>
+			</article>			
 		
 			<article class="fill">
 				<h3>Structure your project</h3>
@@ -534,11 +549,10 @@ exports.echoServer = {port: 1337}
 <pre>
 // echo-server.js
 var config = require('./config.js')
-server.listen(config.port, ...);
+server.listen(config.port, 'localhost');
 </pre>
 			</article>
-			
-			
+					
 			<article class="fill">
 				<h3>socket.io</h3>
 				
@@ -553,21 +567,68 @@ server.listen(config.port, ...);
 			<article class="fill">
 				<h3>request</h3>
 				
+				<aside>
+					<p>Scraping, Crawling, Automization of tasks</p>
+				</aside>
 			</article>
 			
 			<article class="fill">
-				<h3>jQuery</h3>
-				
+				<h3>jQuery, jsDOM</h3>
+
+				<ul>
+					<li>Using "client-side" libraries on the server</li>
+					
+					<br />
+					<li>$.each(), &hellip;</li>
+					<li>Selectors</li>
+				</ul>
 			</article>
 			
+			<article class="fill">
+				<h3>Your daily reddit</h3>
+<pre>
+var jsdom = require('jsdom');
+
+jsdom.env({
+    html: 'http://reddit.com/'
+  , scripts: ['http://code.jquery.com/jquery-1.7.1.min.js']
+
+  , done: function(errors, window) {
+      // ?
+  }
+});
+</pre>
+			</article>
+
+			<article class="fill">
+				<h3>Your daily reddit</h3>
+<pre>
+var jsdom = require('jsdom');
+
+jsdom.env({
+    html: 'http://reddit.com/'
+  , scripts: ['http://code.jquery.com/jquery-1.7.1.min.js']
+
+  , done: function(errors, window) {
+    var $ = window.$;
+    var cnt = 0;
+
+    $("a.title").each(function() {
+      if (cnt++ < 3)
+        console.log(  $(this).text()  );
+    });    
+  }
+});
+</pre>
+			</article>
+
 			<article class="fill">
 				<h3>More interesting libraries</h3>
 				
 				<ul>
-					<li></li>
+					<li>express</li>
 				</ul>
 			</article>
-			
 		</section>
 
 
@@ -575,21 +636,39 @@ server.listen(config.port, ...);
 		<section>
 			<header>Conclusion</header>
 			
-
 			<article class="fill">
 				<h1>Conclusion</h1>
 				<h3>todo</h3>				
 			</article>
-			
-			
+					
+			<article class="">
+				<h3>Used Cases</h3>			
+				
+				<ul>
+					<li></li>
+				</ul>
+			</article>					
+					
+			<article class="">
+				<h3>Used by</h3>			
+				
+				<ul>
+					<li></li>
+				</ul>				
+			</article>					
+					
 			<article class="">
 				<h3>When to use?</h3>
 				TODO
 			</article>
-							
+					
 			<article class="">
 				<h3>When not to use?</h3>
 				TODO
+				<!-- 
+					* do not use for CPU intense tasks, better to fork subprocess
+					* debugging-intense task? 
+				-->
 			</article>				
 		</section>
 

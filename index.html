@@ -118,11 +118,11 @@ JavaScript outside your browser</title>
 				</div>
 			</article>	
 		</section>
-		
+
+
+		<!-- -->		
 		<section>
 			<header>Motivation</header>
-			
-			
 			
 			<article class="fill">
 				<h1>Let's build a network application!</h1>
@@ -142,7 +142,8 @@ JavaScript outside your browser</title>
 			</article>			
 		</section>
 
-		
+
+		<!-- -->
 		<section>
 			<header>JavaScript #101</header>			
 			
@@ -320,20 +321,16 @@ getBox()
 				<h3>CommonJS</h3>
 			
 				<ul>
+					<li>"Common" APIs: Filesystem, Modules, etc. </li>
 					<li><a href="http://www.commonjs.org">www.commonjs.org</a></li>
 				</ul>
 			</article>
 		<section>
 			
 
+<!-- -->
 		<section>
 			<header>JSON</header>
-
-			<article>
-				<p>
-					<img class='centered' src='assets/images/memes/dawg.jpg' style='width:600px;'>
-				</p>
-			</article>
 
 			<article>
 				<p>
@@ -350,10 +347,15 @@ getBox()
 				<h3>JSON</h3>
 				<ul>
 					<li>JavaScript Object Notation</li>
-					<li>Lightweight Datenformat</li>
-					<li>Subset of JavaScript</li>
+					<li>Light-weight data format</li>
+					
+					<br />
 					<li>Objects, Arrays, Strings, Numbers, Booleans, null</li>
 				</ul>
+				
+				<aside>
+					<p>Subset of JavaScript</p>
+				</aside>					
 			</article>
 
 			<article>
@@ -408,12 +410,14 @@ var bar = JSON.parse(foo);
 			</article>		
 			
 			<aside>
-				<p>eval() is evil: JSON.stringify() JSON.parse() since 2009 element of the ECMAScript specification</p>
+				<p>eval() is evil</p>
+				<p>JSON.stringify() JSON.parse() since 2009 element of the ECMAScript specification</p>
 				<p>Hint: JSONView Firefox Extension</p>				
 			</aside>
 		</section>
 
 
+		<!-- -->
 		<section>
 			<header>node.js Basics</header>
 			
@@ -457,27 +461,68 @@ var bar = JSON.parse(foo);
 					<li>Read-eval-print Loop</li>
 					<li>Node Package Manager</li>
 				</ul>
-			</article>		
-
-			<article>
-				<h3>The tools</h3>
-				<ul>
-					<li>Read-eval-print Loop</li>
-					<li>Node Package Manager</li>
-				</ul>
+				
+				<aside>Show repl/npm shell interface.</aside>
 			</article>				
+			
+			<article class="fill">
+				<h3>TCP Echo server</h3>				
+				
+<pre>
+var net = require('net');
+
+var server = net.createServer(function (socket) {
+  socket.write("Echo server\r\n");
+  socket.pipe(socket);
+});
+
+server.listen(1337, "127.0.0.1");
+</pre>
+
+				<div class='source'>
+					http://nodejs.org/
+				</div>
+
+				<aside>
+					<p>From here start modifying the code to build a chat</p>
+				</aside>
+			</article>
+			
+		
+			<article class="fill">
+				<h3>Structure your project</h3>
+<pre>
+// config.js
+exports.echoServer = {port: 1337}
+</pre>
+
+<pre>
+// echo-server.js
+var config = require('./config.js')
+server.listen(config.port, ...);
+</pre>
+			</article>
 		</section>
 
+
+		<!-- -->
 		<section>
 			<header>Conclusion</header>
 			
+
+			<article class="fill">
+				<h1>Conclusion</h1>
+				<h3>light-weight data interchange</h3>				
+			</article>
+			
+			
 			<article class="">
-				<h3>Conclusion</h3>
+				<h3>When to use?</h3>
 				TODO
 			</article>
 							
 			<article class="">
-				<h3>Resourcse</h3>
+				<h3>When not to use?</h3>
 				TODO
 			</article>				
 		</section>

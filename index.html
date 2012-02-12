@@ -572,7 +572,7 @@ var bar = JSON.parse(foo);
 
 				<ul>
 					<li>Built-in support for the most important protocols</li>
-					<li>TCP, DNS, HTTP</li>
+					<li>TCP, DNS, HTTP, Processes, Sys, Timers, etc.</li>
 					<li>Sophisticated HTTP support (Chunked encoding)</li>
 				</ul>
 			</article>
@@ -799,17 +799,18 @@ jsdom.env({
 			</article>
 			
 			<article class="">
-				<h3>When to use?</h3>
-				TODO
-			</article>
-					
-			<article class="">
-				<h3>When not to use?</h3>
-				TODO
-				<!-- 
-					* do not use for CPU intense tasks, better to fork subprocess
-					* debugging-intense task? 
-				-->
+				<h3>Usage scenarios</h3>
+				
+				<ul>
+					<li>Web
+						<ul>
+							<li>Real Time Web</li>
+							<li>Webservices (e.g. REST + JSON)</li>
+						</ul>
+					</li>
+					<li>Network applications</li>
+					<li>Rapid Prototyping</link>
+				</ul>
 			</article>
 						
 			<article class="">
@@ -820,10 +821,8 @@ jsdom.env({
 					which means that you can now develop not just webOS apps but 
 					also services in JavaScript.
 				</q>
-				<!-- <div class="author">HP webOS 2.1</div> -->
 
-				<div class="source">https://developer.palm.com/index.php?id=2109&view=article</div>
-				
+				<div class="source">https://developer.palm.com/index.php?id=2109&view=article</div>				
 			</article>					
 					
 			<article class="">

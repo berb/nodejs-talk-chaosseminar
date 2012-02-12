@@ -282,7 +282,7 @@ var song = {
 			<article>
 				<h3>Callback-Functions</h3>
 				<p>Synchronous</p>
-				<pre style='font-size:19px;'>
+<pre style='font-size:19px;'>
 task = create_task();
 result = work_synchronously(task)
 // finger twiddling?
@@ -291,7 +291,7 @@ show(result);
 
 				<div class='build'>
 					<p>Asynchronous</p>
-					<pre style='font-size:19px;'>
+<pre style='font-size:19px;'>
 task = create_task();
 result = work_asynchronously(task, function(result) {
 	show(result);
@@ -471,10 +471,58 @@ var bar = JSON.parse(foo);
 			</article>
 			
 			<article class="">
+				<h3>The Project</h3>			
+				
+				<q style="margin-top:50px; font-size:40px;">
+					This is the node.js project:<br />
+					
+					To provide a purely evented, non-blocking infrastructure to 
+					script highly concurrent programs.					
+				</q>
+				
+				<div class="source">http://s3.amazonaws.com/four.livejournal/20091117/jsconf.pdf</div>
 			</article>
 			
 			<article class="">
-				<h3>The Project</h3>			
+				<h3>Design Goals</h3>			
+				
+				<ul>
+					<li>No function should direct perform I/O.</li>
+					<li>For receiving info from disk, network, or another process a callback must be used.</li>
+				</ul>
+				
+				<div class="source">http://s3.amazonaws.com/four.livejournal/20091117/jsconf.pdf</div>				
+			</article>
+			
+<!--
+			<article class="">
+				<h3>Design Goals</h3>			
+
+				<ul>
+					<li>Low-level</li>
+					<li>Stream everything; never force the buffering of data.</li>
+				</ul>
+
+				<div class="source">http://s3.amazonaws.com/four.livejournal/20091117/jsconf.pdf</div>				
+			</article>
+-->
+
+			<article class="">
+				<h3>Design Goals</h3>			
+
+				<ul>
+					<li>Built-in support for the most important protocols</li>
+					<li>TCP, DNS, HTTP</li>
+					<li>Sophisticated HTTP support (Chunked encoding)</li>
+				</ul>
+			</article>
+
+			<article class="">
+				<h3>Design Goals</h3>			
+
+				<ul>
+					<li>API should be familiar to client-side JS coders and adhere to the Unix way of doing things</li>
+				</ul>
 			</article>
 
 			<article class="">
@@ -486,6 +534,9 @@ var bar = JSON.parse(foo);
 			<article class="">
 				<h3>API Functions</h3>			
 				
+				<ul>
+					<li>Core Modules:</li>
+				</ul>
 			</article>
 		</section>
 
@@ -535,7 +586,7 @@ server.listen(1337, "127.0.0.1");
 			</article>
 					
 			<article class="fill">
-				<h3>Structure: Modules</h3>
+				<h3>Structure: CommonJS module system</h3>
 <pre>
 // config.js
 exports.echoServer = {port: 1337}
@@ -622,6 +673,7 @@ io.sockets.on('connection', function (socket) {
 					<br />
 					<li>$.each(), &hellip;</li>
 					<li>Selectors</li>
+					<li>Good tool for Scraping tasks</li>
 				</ul>				
 			</article>
 			

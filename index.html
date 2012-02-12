@@ -152,121 +152,85 @@ JavaScript outside your browser</title>
 			</article>
 			
 			<article>
-				<h3>History</h3>
+				<h3>Random words</h3>
 				<ul>
-					<li></li>
-					<li>..</li>
-					<li>WebKit</li>
+					<li>Brendan Eich, 1995</li>
+					<li>v1.8, 2008</li>
+					<li>ECMAScript</li>
 				</ul>
 			</article>
 			
-			<article>
-				<h3>Language properties</h3>
-				<ul>
-					<li></li>
-				</ul>
-			</article>
-
 			<article>
 				<h3>Types: Simple Types</h3>
 				<ul>
 					<li>Numbers</li>
 					<li>Strings</li>
 					<li>Booleans</li>
-					<li>undefined</li>
+					<li>Function</li>
+					<li>Object</li>
 				</ul>
-
-				-> immutable
 			</article>
-
-
 
 			<article>
-				<h3>Types: Objects</h3>
+				<h3>Types: Simple Types</h3>
+				
+				<div  class="build">
+				<div style="float:left; margin-right:125px; padding-top:20px">
 				<ul>
-					<li>Collections of key/value pairs</li>
-					<li>Arrays, Functions, RegEx, etc.</li>
-					<!-- mutable -->
+					<li>Numbers</li>
+					<li>Strings</li>
+					<li>Booleans</li>					
 				</ul>
-			</article>
+				</div>
 
+
+				<div style="float:left;padding-top:20px; margin-right:125px;">
+				<ul>
+					<li>Object
+						<ul>
+							<li>Function</li>
+							<li>Array</li>
+							<li>Date</li>
+							<li>RegExp</li>
+						</ul>
+					</li>
+				</ul>				
+			</div>
+			
+			<div style="float:left;padding-top:20px">
+				<ul>
+					<li>Null</li>
+					<li>Undefined</li>
+				</ul>
+			</div>
+		</div>
+			</article>
 
 			<article>
 				<h3>Objectliterals</h3>
-				<div>
+				<ul>
 <pre>
 var song = {
-   "artist": "yamantaka",
-   "title": "queens",
+  "never": "gonna",
+  "give": "you",
 
-   "album": {
-      "year": 2011,
-      "title": "sonic titan"
-   }
+  "up": {
+    "never": "gonna",
+    "let": "you",
+    "down": ""
+  }
 }
-</pre>
-</div>
-			</article>
-
-
-
-			<article>
-				<h3>Accessing properties</h3>
-				<pre>
-song.artist
-song["artist"]
-song.foo // undefined
-</pre>
-
-			Deleting properties
-							<pre>
-delete song.artist
-</pre>			
-
-<!--				
-Der Prototyp scheint dann durch, falls vorhanden!
-Bei Zugriff auf song.artist wird jetzt im Prototyp nachgeschaut!
--->
-
-			</article>
-
-			<article>
-				<h3>Enumeration</h3>
-
-				<div class='build'>
-				<pre>
-for (var key in object) {
-  console.log( object[key] );
-}
-</pre>
-Cascade:
-<pre>
-	...
-</pre>
-				</div>
-			</article>
-		
+</pre>	
 					
-
-				<article>
-					<h3>Creating objects</h3>
-					<pre>
-/* TODO: überarbeiten */
-var Auto = function(brand) {
-  this.wheels = 2;
-  this.brand = brand;
-
-  this.motor = function() {
-    return "brumm";
-  }   
-}
-
-ford = new Auto("Ford");
-</pre>
-
-					Constructor: Functions, which is initialized with "new".
-				</article>			
-
+				<aside>				
+					<p>Collections of key/value pairs</p>
+					<p>Arrays, Functions, RegEx, etc.</p>
+					
+					<p>window and document are no elements of the language!</p>					
+				</aside>
+			</article>
+			
+			
 
 			<article>
 				<h3>Predefined objects</h3>
@@ -276,103 +240,6 @@ ford = new Auto("Ford");
 					<li>Function, Array, String, Boolean,
 					Number, Math, Date, RegExp</li>
 				</ul>
-
-				<div class='build'>
-				<br />
-				<p>window and document are no elements of the language!</p>
-				</div>
-			</article>
-
-			<article>
-				<h3>Arrays</h3>
-
-				<ul>
-					<li>Object with "Array"-Charakteristics</li>
-					<li>Functions like length</li>
-				</ul>
-
-				<div class='build'>
-				<pre>
-/* TODO */
-var nix = [];
-
-var mehr = ["eins", "zwo", "drei"];
-mehr.length // 3
-</pre>
-
-				<pre>
-delete mehr[1];
-mehr.length // 3, mehr = ["eins", , "drei"];
-</pre>
-<p>Besser: splice(2,3)</p>
-				</div>
-			</article>
-
-			<article>
-				<h3>Variables</h3>
-				<pre>
-/* TODO */					
-var foo = "bar";
-
-var foo = function() {
-  // kein zugriff von außen möglich!
-  var a = 3; 
-  var bar = function() {
-    return this.a + 2:
-  }
-}
-</pre>
-
-				Variables declared with "var" will be bound to the local scope.
-				Otherwise to the global object.
-			</article>
-
-			<article>
-				<h3>Scope</h3>
-			</article>
-
-			<article>
-				<h3>this-Problematic</h3>
-				<p>Worauf this zeigt hängt davon ab, wie die Funktion aufgerufen wird!</p>
-				<!-- Nicht davon wie, wo oder wann sie definiert wurde! -->
-<div class='build'>
-<pre>
-// Aufruf als Methode eines Objekts
-var objekt = {
-  prop: 37,
-
-  foo: function() {
-    return this.prop;
-  }
-};
-</pre>
-<pre>
-console.log(objekt.foo()); // 37
-</pre>
-</div>
-</article>
-
-<article>
-	<h3>this-Problematik</h3>
-<div class='build'>
-
-<div>
-<pre>
-function Foo(){
-  this.a = 37;
-  return {a:38};
-}
-
-// Aufruf als Konstruktor
-// this hängt am Objekt, das konstruiert wurde
-ojekt = new Foo();
-</pre>
-</div>
-
-<pre>
-console.log(objekt.a); // 38	
-</pre>
-</div>
 
 			</article>
 
@@ -451,7 +318,7 @@ console.log(ducati.wheels); // 2
 			
 			
 			<article>
-				<h3>Interesting language elements</h3>
+				<h3>Interesting language constructions</h3>
 				<ul>
 					<li></li>
 				</ul>
@@ -487,14 +354,6 @@ console.log(ducati.wheels); // 2
 				</ul>
 			</article>
 
-			<article>
-				<h3>Security implications</h3>
-				<ul>
-					<li>Same origin policy</li>					
-					<li>XSS</li>
-				</ul>
-			</article>
-		
 		<section>
 
 		<section>
@@ -580,6 +439,7 @@ var bar = JSON.parse(foo);
 </pre>
 			</article>		
 		</section>
+
 
 		<section>
 			<header>node.js Basics</header>

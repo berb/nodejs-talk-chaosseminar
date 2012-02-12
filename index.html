@@ -106,21 +106,31 @@ JavaScript outside your browser</title>
 				Student @ Ulm University<br/>
 				Computer Science and Media
 				</p>
-				<p><span style="font-weight:bold;">Interests:</span> web technologies, scalabale architectures, distributed systems and mobile/ubiquitous computing</p>
+				<p><span style="font-weight:bold;">Interests:</span><br />
+					web technologies, scalabale architectures, distributed systems and mobile/ubiquitous computing</p>
 				<div style="clear:both;"></div>
-				<p><span style="font-weight:bold;">Contact:</span><br/>
 
-				www: <a href="http://www.benjamin-erb.de/">benjamin-erb.de</a><br />
-				<!-- 
-					/ <a href="http://www.ioexception.de/">ioexception.de</a><br/> 
-					wuerde ich dann auf der naechsten slide erwaehnen, wenn es hier
-					schon steht muessen wir es an dieser stelle dann auch erklaeren
-				-->
-				twitter: <a href="http://www.twitter.com/b_erb">@b_erb</a><br/>
-				g+: <a href="http://www.twitter.com/b_erb">b.erb.io/+</a><br/>
-				<br/>
+				<p>
+					<span style="font-weight:bold;">Contact:</span><br/>
 
-				</p>
+					<div style="float:left; margin-right:10px;">
+						www:<br />
+						twitter:<br />
+						g+:
+					</div>
+
+					<div style="float:left">
+						<a href="http://www.benjamin-erb.de/">benjamin-erb.de</a><br />
+						<a href="http://www.twitter.com/b_erb">@b_erb</a><br/>
+						<a href="http://www.twitter.com/b_erb">b.erb.io/+</a>
+						<!-- 
+							/ <a href="http://www.ioexception.de/">ioexception.de</a><br/> 
+							wuerde ich dann auf der naechsten slide erwaehnen, wenn es hier
+							schon steht muessen wir es an dieser stelle dann auch erklaeren
+						-->			
+					</div>
+				</p>				
+				
 				</div>
 			</article>	
 			
@@ -341,22 +351,13 @@ var song = {
 
 			<article>
 				<h3>Callback-Functions</h3>
-				<p>Synchronous</p>
-<pre style='font-size:19px;'>
-task = create_task();
-result = work_synchronously(task)
-// finger twiddling?
-show(result);
-</pre>
-
-				<div class='build'>
-					<p>Asynchronous</p>
 <pre style='font-size:19px;'>
 task = create_task();
 result = work_asynchronously(task, function(result) {
 	show(result);
 });</pre>
-				</div>
+
+				<p>JavaScript intrinsically supports event-oriented programming!</p> 
 			</article>
 
 			<article>
@@ -386,6 +387,22 @@ getBox()
   .setVisible(true)
 </pre>
 			</article>
+			
+			<article>
+				<h3>Interesting language constructions</h3>
+
+			<p>Anonymous functions</p>
+<pre>
+</pre>
+		
+			<p>Closures</p>
+<pre>
+</pre>
+			
+			<p>Functions as variables</p>
+<pre>
+</pre>
+			</article>			
 	
 			<article>
 				<h3>The Bad Parts</h3>
@@ -613,6 +630,72 @@ var bar = JSON.parse(foo);
 					<li>Core Modules:</li>
 				</ul>
 			</article>
+			
+			<article class="">
+				<h3>Blocking Calls</h3>			
+				
+				<p>SQL Query with Java</p>
+				
+<pre>
+Statement s = conn.createStatement();
+s.executeQuery("SELECT id FROM users");
+ResultSet rs = s.getResultSet();
+// finger twiddling
+// use result set
+</pre>
+			</article>			
+		
+		<article class="">
+			<h3>Blocking Calls</h3>			
+
+			<div class="build">
+				<div>
+					<table>
+						<tr>
+							<td>I/O RAM</td>
+							<td>250 Cycles</td>
+						</tr>
+						<tr>
+							<td>I/O Festplatte</td>
+							<td>41.000.000 Cycles</td>
+						</tr>
+						<tr>
+							<td>I/O Netzwerk</td>
+							<td>240.000.000 Cycles</td>
+						</tr>
+					</table>
+				</div>
+
+				<div>
+					<br />
+					<h3>Multithreading?</h3>
+					<ul>			
+						<li>Switching context is expensive</li>
+						<li>Execution Stacks use storage</li>
+						<li>extremely difficult to get right</li>
+					</ul>
+				</div>
+			</div>
+		</article>	
+		
+
+			<article>
+				<h3>Non-Blocking Calls</h3>			
+				
+				<div class="build">
+<pre>
+db.executeStatement("SELECT id FROM users", function(resultSet) {
+	// use result
+});
+//...
+</pre>
+					<ul>
+						<li>Does not block!</li>
+						<li>Callback-Function as return value</li>
+						<li>Execution of the Callback once operation finished</li>
+					</ul>
+				</div>
+			</article>		
 		</section>
 
 

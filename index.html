@@ -564,11 +564,9 @@ var bar = JSON.parse(foo);
 				<h3>Design Goals</h3>			
 				
 				<ul>
-					<li>No function should direct perform I/O.</li>
-					<li>For receiving info from disk, network, or another process a callback must be used.</li>
-				</ul>
-				
-				<div class="source">http://s3.amazonaws.com/four.livejournal/20091117/jsconf.pdf</div>				
+					<li>No function should perform direct I/O</li>
+					<li>For reading from disk, network or other processes Callbacks are used</li>
+				</ul>				
 			</article>
 			
 <!--
@@ -588,8 +586,8 @@ var bar = JSON.parse(foo);
 				<h3>Design Goals</h3>			
 
 				<ul>
-					<li>Built-in support for the most important protocols</li>
-					<li>TCP, DNS, HTTP, Processes, Sys, Timers, etc.</li>
+					<li>Built-in support for the most important protocols<br />
+						TCP, DNS, HTTP, Processes, Sys, Timers, etc.</li>
 					<li>Sophisticated HTTP support (Chunked encoding)</li>
 				</ul>
 			</article>
@@ -623,14 +621,6 @@ var bar = JSON.parse(foo);
 				</ul>
 			</article>
 
-			<article class="">
-				<h3>API Functions</h3>			
-				
-				<ul>
-					<li>Core Modules:</li>
-				</ul>
-			</article>
-			
 			<article class="">
 				<h3>Blocking Calls</h3>			
 				

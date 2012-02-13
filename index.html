@@ -253,8 +253,8 @@ JavaScript outside your browser</title>
 					<li>ECMAScript</li>
 
 					<br />
-					<li>Script language</li>
-					<li>Parse-time vs. run-time</li>
+					<li>script language</li>
+					<li>multi-paradigm language: functional, procedural, <br/> oo-<em>alike</em></li>
 				</ul>
 				
 				<aside>
@@ -266,7 +266,7 @@ JavaScript outside your browser</title>
 			<article>
 				<h3>Types: Simple Types</h3>
 				<ul>
-					<li>Numbers</li>
+					<li><code>Number</code>s</li>
 					<li>Strings</li>
 					<li>Booleans</li>
 					<li>Function</li>
@@ -359,11 +359,11 @@ var song = {
 
 			<article>
 				<h3>Callback Functions</h3>
-<pre style='font-size:19px;'>
-task = create_task();
-result = work_asynchronously(task, function(result) {
-	show(result);
-});</pre>
+<pre style='font-size:19px;'>var callback = function(result) {
+	//...
+};
+
+doItAsynchronously(foo, bar, callback);</pre>
 
 				<p>JavaScript intrinsically supports event-oriented programming!</p> 
 			</article>
@@ -501,6 +501,12 @@ getBox()
 
 // Numbers
 42 2e+6 2.34
+
+// Boolean
+true
+
+// Null
+null
 </pre>
 			</article>			
 
@@ -511,7 +517,7 @@ getBox()
 {
   "Some": "String",
   "Large": 2e+6,
-  "Small": 42
+  "Small": 42,
 
   "An Object": {
     "An Array": [ "Un", "Dos", "Tres" ],
@@ -710,9 +716,9 @@ db.executeStatement("SELECT id FROM users", function(resultSet) {
 			</article>
 			
 			<article>
-				<h3>The tools</h3>
+				<h3>The Tools</h3>
 				<ul>
-					<li>Read-eval-print loop (REPL)</li>
+					<li>Read-Eval-Print Loop (REPL)</li>
 					<li>Node Package Manager</li>
 				</ul>
 				

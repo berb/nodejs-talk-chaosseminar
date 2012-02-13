@@ -455,7 +455,6 @@ getBox()
 		<section>
 			
 
-		<!-- -->
 		<section>
 			<header>JSON</header>
 
@@ -554,92 +553,123 @@ var bar = JSON.parse(foo);
 		</section>
 
 
-		<!-- -->
 		<section>
 			<header>node.js Basics</header>
 			
 			<article class="fill">
-				<img class="nofill centered" style="width:75%"  src="assets/logos/node.svg">
-				<h1>node.js</h1>
+				<img class="nofill " style="width:75%; position:absolute;top:100px;"  src="assets/logos/node.svg">
+				<h1>&nbsp;</h1>
 				<h3>The Basics</h3>				
 			</article>
 			
 			<article class="">
-				<h3>The Project</h3>			
+				<h3>The Creator: Ryan Dahl</h3>	
+				<img src="assets/images/ryah.jpg" class="centered" style="width:400px"/>
+				<div class='source'>Image: <a href="http://www.flickr.com/bumi/5833731235">bumi</a> (cc-by-sa 2.0)</div>
+				
+				<aside>
+				<ul>
+					<li>math PhD drop-out</li>
+					<li>former Ruby user</li>
+					<li>web server for real-time upload</li>
+					<li>inspired mongrel</li>
+					<li>quit job, 6 month coding</li>
+					<li>JSConf</li>
+				</ul>		
+				</aside>
+			</article>
+			
+			<article class="">
+				<h3>The Idea</h3>			
 				
 				<q style="margin-top:50px; font-size:40px;">
-					This is the node.js project:<br />
-					
 					To provide a purely evented, non-blocking infrastructure to 
 					script highly concurrent programs.					
 				</q>
 				
 				<div class="source">http://s3.amazonaws.com/four.livejournal/20091117/jsconf.pdf</div>
-			</article>
+			</article>			
+			
+			<article class="fill">
+				<h1>But why JavaScript?</h1>
+			</article>			
 			
 			<article class="">
-				<h3>Design Goals</h3>			
-				
+				<h3>But why JavaScript?</h3>
 				<ul>
-					<li>No function should perform direct I/O</li>
-					<li>For reading from disk, network or other processes callbacks are used</li>
+					<li class="med-color">it had <strong>no API for I/O</strong> at all</li>
+					<li>it supports callbacks, closures etc.</li>
+					<li>it embraces an event-driven style</li>
+				</ul>
+			</article>			
+			
+			<article class="">
+				<h3>The Project</h3>			
+				<ul>
+					<li>single-threaded event loop</li>
+					<li>completely non-blocking and asynchronous</li>
+					<li>esp. no (implicit) blocking I/O</li>
+					<li>simple concurrency model</li>
+				</ul>
+			</article>
+			
+			<article class="fill">
+				<h1>Event Loop?</h1>
+			</article>					
+			
+			<article class="">
+				<h3>Event-driven Programming</h3>
+				<ul>
+					<li>well-known: GUIs</li>
+					<li>events, event handlers and callbacks</li>
+					<li>event queue and single-threaded event loop</li>
+					<li>explicit task management</li>
+					<li>no call stacks</li>
+				</ul>				
+			</article>					
+			
+			<article class='fill'>
+				<q>Well, in node everything runs in parallel, except your code.</q>
+				<div class='author'>@felixge</div>				
+			</article>			
+			
+			<article class="fill">
+				<h1>???</h1>
+			</article>		
+			
+			<article class="fill">
+				<h3>Event-driven Programming: Event Handling</h3>
+				<img class="centered nofill" style="width:800px" src="assets/illu/eventloop.svg"/>			
+			</article>		
+			
+			<article class="fill">
+				<h1>Okay, but JavaScript is slow, right?!</h1>
+			</article>					
+			
+			<article class="">
+				<h3>Goolge v8</h3>			
+				<ul>
+					<li>part of Google Chrome web browser</li>
+					<li>compiles JavaScript to native machine code before execution</li>
+					<li>advanced features (e.g. inlince caching)</li>
+					<li><em>sufficiently</em> fast</li>
+				</ul>				
+			</article>	
+					
+			<article class="">
+				<h3>node.js: Overview</h3>			
+				<ul>
+					<li>built on Google's v8</li>
+					<li>written in C++ and JavaScript</li>
+					<li>libraries that wrap POSIX interfaces (async!)</li>
+					<li>some dedicated libraries (e.g. <code>http-parser</code>)</li>
+					<li>signaling via <code>epoll</code>, <code>kqueue</code>, <code>/dev/poll</code> or <code>select</code></li>
 				</ul>				
 			</article>
-			
-<!--
-			<article class="">
-				<h3>Design Goals</h3>			
 
-				<ul>
-					<li>Low-level</li>
-					<li>Stream everything; never force the buffering of data.</li>
-				</ul>
-
-				<div class="source">http://s3.amazonaws.com/four.livejournal/20091117/jsconf.pdf</div>				
-			</article>
--->
 
 			<article class="">
-				<h3>Design Goals</h3>			
-
-				<ul>
-					<li>Built-in support for the most important protocols<br />
-						TCP, DNS, HTTP, processes, sys, timers, etc.</li>
-					<li>Sophisticated HTTP support (chunked encoding)</li>
-				</ul>
-			</article>
-
-			<article class="">
-				<h3>Design Goals</h3>			
-
-				<ul>
-					<li>API should be familiar to client-side JS coders and adhere to the Unix way of doing things
-						<ul>
-							<li>Spawn new processes</li>
-						</ul>
-					</li>
-					<li>Platform independence</li>
-				</ul>
-			</article>
-
-			<article class="">
-				<h3>The Platform</h3>			
-				
-				<ul>
-					<li>ECMAScript 5</li>
-					
-					<li>Google v8
-						<ul>
-							<li>JavaScript Engine (Chrome Browser)</li>
-							<li>Compiling into native machine code</li>
-							<li>Garbage Collection, Inline caching, etc.</li>
-						</ul>
-					</li>
-				</ul>
-			</article>
-
-			<article class="">
-				<h3>Blocking Calls</h3>			
+				<h3>Reminder: Blocking Calls</h3>			
 				
 				<p>SQL Query with Java</p>
 				
@@ -647,66 +677,143 @@ var bar = JSON.parse(foo);
 Statement s = conn.createStatement();
 s.executeQuery("SELECT id FROM users");
 ResultSet rs = s.getResultSet();
-// finger twiddling
 // use result set
 </pre>
 			</article>			
-		
-		<article class="">
-			<h3>Blocking Calls</h3>			
-
-			<div class="build">
-				<div>
-					<table>
-						<tr>
-							<td>RAM Access</td>
-							<td>250 Cycles</td>
-						</tr>
-						<tr>
-							<td>Harddisk I/O</td>
-							<td>41.000.000 Cycles</td>
-						</tr>
-						<tr>
-							<td>Network I/O</td>
-							<td>240.000.000 Cycles</td>
-						</tr>
-					</table>
-				</div>
-
-				<div>
-					<br />
-					<h3>Multithreading?</h3>
-					<ul>			
-						<li>context switching is expensive</li>
-						<li>execution stacks use memory</li>
-						<li>extremely difficult to get right</li>
-					</ul>
-				</div>
-			</div>
-		</article>	
-		
 
 			<article>
 				<h3>Non-Blocking Calls</h3>			
+
+				<p>Pseudo example in asynchronous JavaScript</p>
 				
-				<div class="build">
 <pre>
 db.executeStatement("SELECT id FROM users", function(resultSet) {
 	// use result
 });
 //...
 </pre>
-					<ul>
-						<li>Does not block!</li>
-						<li>Callback function as return value</li>
-						<li>Execution of the callback once operation finished</li>
-					</ul>
-				</div>
+				<div class="build">
+						<ul>
+							<li>Does not block!</li>
+							<li>Callback function is passed to call</li>
+							<li>Execution of the callback once operation finished</li>
+						</ul>
+					</div>
 			</article>		
+			
+			<article class="">
+				<h3>Comparison: File I/O – Sync/Async</h3>	
+<section>
+					<pre>var fs = require('fs');
+
+//Async...
+var callback = function(err, stats){
+	console.log(stats);
+};
+fs.stat("/etc/passwd", callback);
+</pre>
+
+				</section>				
+<section>
+					<pre>var fs = require('fs');
+					
+//Sync: Don't try this at home...
+var stats = fs.statSync("/etc/passwd");
+console.log(stats);
+</pre>
+
+				</section>				
+			</article>		
+			
+			<article class="">
+				<h3>Access Latencies</h3>			
+
+				<div class="build">
+					<div>
+						<table>
+							<tr>
+								<td>RAM Access</td>
+								<td>250 Cycles</td>
+							</tr>
+							<tr>
+								<td>Harddisk I/O</td>
+								<td>41.000.000 Cycles</td>
+							</tr>
+							<tr>
+								<td>Network I/O</td>
+								<td>240.000.000 Cycles</td>
+							</tr>
+						</table>
+					</div>
+
+					<div>
+						<h4>ZZZZzzzzzZZZZ</h4>
+						<h4>What happens in the meantime?</h4>
+					</div>
+				</div>
+			</article>
+		
+			
+			<article class="">
+				<h3>Conurrency: Multithreading</h3>			
+				<ul>			
+					<li>multiple flows of execution</li>
+					<li>OS schedules threads/processes</li>
+					<li>Thread is waiting for I/O? => switch</li>
+				</ul>			
+			</article>		
+				
+			<article class="">
+				<h3>Multithreading: Beware…</h3>
+				<ul>			
+					<li>context switching is not for free</li>
+					<li>execution stacks cost memory</li>
+					<li>Also, multithreading is hard. (Yes it is!)</li>
+				</ul>			
+			</article>		
+			
+			<article class="fill">
+				<h1>What about C10k?</h1>
+				<h3>10.000 Connections = 10.000 Threads?</h4>
+			</article>					
+		
+			<article class="fill">
+				<h1>Oppps!</h1>
+				<h3>We're fucked.</h4>
+			</article>					
+				
+			<article class="fill">
+				<h1>Just use a single thread!</h1>
+				<h3>Ermh, are you nuts?</h4>
+			</article>		
+		
+			
+			<article class='fill'>
+				<h3>Remember…</h3>
+				<q>Well, in node everything runs in parallel, except your code.</q>
+				<div class='author'>@felixge</div>				
+			</article>	
+			
+			<article class="fill">
+				<h1>node scales!</h1>
+				<h3>…at least for I/O-bound operations</h4>
+			</article>		
+			
+			<article class="fill">
+				<h1>node does not scale!</h1>
+				<h3>…for CPU-bound operations.</h4>
+			</article>		
+										
+			<article class="fill">
+				<iframe src='http://teddziuba.com/2011/10/node-js-is-cancer.html'></iframe>
+			</article>
+										
+
+		
 		</section>
 
 
-		<!-- -->
+
 		<section>
 			<header>Programming with node.js</header>
 			
@@ -724,11 +831,7 @@ db.executeStatement("SELECT id FROM users", function(resultSet) {
 				
 				<aside>Show REPL/npm shell interface.</aside>
 			</article>				
-			
-			<!-- ein non-blocking file i/o beispiel waere noch ganz gut -->
-			<article class="">
-				<h3>Non-blocking File I/O</h3>
-			</article>
+
 			
 			<article class="fill">
 				<h3>TCP Echo Server</h3>				

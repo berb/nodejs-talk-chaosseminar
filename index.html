@@ -413,7 +413,18 @@ doItAsynchronously(foo, bar, callback);</pre>
 setTimeout( function() { /* ... */ }, 1000);
 </pre>
 
-			<p>Closures</p>
+			<p>Functions as variables</p>
+<pre>
+var foo = function() {}
+foo();
+execute(foo);
+</pre>
+			</article>
+			
+			<article class="build">
+				<h3>Interesting Language Usages</h3>
+					
+				<p>Closures</p>
 <pre>
 var foo = function() {
   var value = 42;
@@ -422,17 +433,8 @@ var foo = function() {
     getValue: function() { return this.value }
   }
 }
-</pre>
-			</article>
-			
-			<article class="build">
-				<h3>Interesting Language Usages</h3>
-					
-			<p>Functions as variables</p>
-<pre>
-var foo = function() {}
-foo();
-execute(foo);
+
+var obj = foo();
 </pre>
 
 			<p>Cascading</p>

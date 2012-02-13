@@ -246,7 +246,7 @@ JavaScript outside your browser</title>
 
 					<br />
 					<li>Script language</li>
-					<li>Parse-time vs. Run-time</li>
+					<li>Parse-time vs. run-time</li>
 				</ul>
 				
 				<aside>
@@ -305,7 +305,7 @@ JavaScript outside your browser</title>
 			</article>
 
 			<article>
-				<h3>Objectliterals</h3>
+				<h3>Object Literals</h3>
 				<ul>
 <pre>
 var song = {
@@ -335,8 +335,8 @@ var song = {
 
 				<div class='build'>
 					<ul>
-						<li>Variables, Argument, Return-Value</li>
-						<li>Creatable at run-time</li>
+						<li>Variables, argument, return values</li>
+						<li>Composable at run-time</li>
 						<li>Identity: independent from name</li>
 					</ul>
 				</div>
@@ -350,7 +350,7 @@ var song = {
 			</article>
 
 			<article>
-				<h3>Callback-Functions</h3>
+				<h3>Callback Functions</h3>
 <pre style='font-size:19px;'>
 task = create_task();
 result = work_asynchronously(task, function(result) {
@@ -377,7 +377,7 @@ result = work_asynchronously(task, function(result) {
 			</article>
 			
 			<article>
-				<h3>Interesting language constructions</h3>
+				<h3>Interesting Language Usages</h3>
 
 			<p>Cascading</p>
 <pre>
@@ -389,7 +389,7 @@ getBox()
 			</article>
 			
 			<article>
-				<h3>Interesting language constructions</h3>
+				<h3>Interesting Language Usages</h3>
 
 			<p>Anonymous functions</p>
 <pre>
@@ -408,6 +408,7 @@ getBox()
 				<h3>The Bad Parts</h3>
 				<ul>
 					<li>global Object</li>
+					<li>scoping</li>
 					<li>eval(), this, typeof</li>
 				</ul>
 				
@@ -420,9 +421,9 @@ getBox()
 				<h3>The Good Parts</h3>
 				<ul>
 					<li>Functions as first class objects<br />
-						(Callback functions, Closure)</li>
+						(callback functions, closure)</li>
 					<li>Prototypal inheritance</li>
-					<li>Objectliteral &amp; Arrayliteral, RegEx syntax</li>
+					<li>Object literal &amp; Array literal, RegEx syntax</li>
 				</ul>
 				
 				<aside>
@@ -467,7 +468,7 @@ getBox()
 				<h3>JSON</h3>
 				<ul>
 					<li>JavaScript Object Notation</li>
-					<li>Light-weight data format</li>
+					<li>light-weight data format</li>
 					
 					<br />
 					<li>Objects, Arrays, Strings, Numbers, Booleans, null</li>
@@ -515,7 +516,7 @@ getBox()
 
 
 			<article>
-				<h3>JSON usage in JavaScript</h3>
+				<h3>JSON Usage in JavaScript</h3>
 
 				<pre>
 // Object as a JSON-String
@@ -565,7 +566,7 @@ var bar = JSON.parse(foo);
 				
 				<ul>
 					<li>No function should perform direct I/O</li>
-					<li>For reading from disk, network or other processes Callbacks are used</li>
+					<li>For reading from disk, network or other processes callbacks are used</li>
 				</ul>				
 			</article>
 			
@@ -587,8 +588,8 @@ var bar = JSON.parse(foo);
 
 				<ul>
 					<li>Built-in support for the most important protocols<br />
-						TCP, DNS, HTTP, Processes, Sys, Timers, etc.</li>
-					<li>Sophisticated HTTP support (Chunked encoding)</li>
+						TCP, DNS, HTTP, processes, sys, timers, etc.</li>
+					<li>Sophisticated HTTP support (chunked encoding)</li>
 				</ul>
 			</article>
 
@@ -611,11 +612,11 @@ var bar = JSON.parse(foo);
 				<ul>
 					<li>ECMAScript 5</li>
 					
-					<li>Google V8
+					<li>Google v8
 						<ul>
-							<li>JavaScript Engine (Chrome, etc.)</li>
+							<li>JavaScript Engine (Chrome Browser)</li>
 							<li>Compiling into native machine code</li>
-							<li>Garbage Collection, Inline Caching, etc.</li>
+							<li>Garbage Collection, Inline caching, etc.</li>
 						</ul>
 					</li>
 				</ul>
@@ -642,15 +643,15 @@ ResultSet rs = s.getResultSet();
 				<div>
 					<table>
 						<tr>
-							<td>I/O RAM</td>
+							<td>RAM Access</td>
 							<td>250 Cycles</td>
 						</tr>
 						<tr>
-							<td>I/O Festplatte</td>
+							<td>Harddisk I/O</td>
 							<td>41.000.000 Cycles</td>
 						</tr>
 						<tr>
-							<td>I/O Netzwerk</td>
+							<td>Network I/O</td>
 							<td>240.000.000 Cycles</td>
 						</tr>
 					</table>
@@ -660,8 +661,8 @@ ResultSet rs = s.getResultSet();
 					<br />
 					<h3>Multithreading?</h3>
 					<ul>			
-						<li>Switching context is expensive</li>
-						<li>Execution Stacks use storage</li>
+						<li>context switching is expensive</li>
+						<li>execution stacks use memory</li>
 						<li>extremely difficult to get right</li>
 					</ul>
 				</div>
@@ -681,8 +682,8 @@ db.executeStatement("SELECT id FROM users", function(resultSet) {
 </pre>
 					<ul>
 						<li>Does not block!</li>
-						<li>Callback-Function as return value</li>
-						<li>Execution of the Callback once operation finished</li>
+						<li>Callback function as return value</li>
+						<li>Execution of the callback once operation finished</li>
 					</ul>
 				</div>
 			</article>		
@@ -701,20 +702,20 @@ db.executeStatement("SELECT id FROM users", function(resultSet) {
 			<article>
 				<h3>The tools</h3>
 				<ul>
-					<li>Read-eval-print Loop</li>
+					<li>Read-eval-print loop (REPL)</li>
 					<li>Node Package Manager</li>
 				</ul>
 				
-				<aside>Show repl/npm shell interface.</aside>
+				<aside>Show REPL/npm shell interface.</aside>
 			</article>				
 			
 			<!-- ein non-blocking file i/o beispiel waere noch ganz gut -->
 			<article class="">
-				<h3>Non-blocking file I/O</h3>
+				<h3>Non-blocking File I/O</h3>
 			</article>
 			
 			<article class="fill">
-				<h3>TCP Echo server</h3>				
+				<h3>TCP Echo Server</h3>				
 <pre>
 var net = require('net');
 
@@ -734,12 +735,12 @@ server.listen(1337, "127.0.0.1");
 
 				<aside>
 					<p>From here start modifying the code to build a chat on top</p>
-					<p>Explaining Error-Handling while coding?</p>
+					<p>Explaining error-handling while coding?</p>
 				</aside>
 			</article>
 					
 			<article class="fill">
-				<h3>Structure: CommonJS module system</h3>
+				<h3>Structure: CommonJS Module System</h3>
 <pre>
 // config.js
 exports.echoServer = {port: 1337}

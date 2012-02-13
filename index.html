@@ -256,7 +256,7 @@ JavaScript outside your browser</title>
 					<br />
 					<li>script language</li>
 					<li>multi-paradigm language:<br />
-						functional, procedural, oo</li>
+						functional, procedural, object-oriented</li>
 				</ul>
 				
 				<aside>
@@ -319,6 +319,7 @@ JavaScript outside your browser</title>
 				
 				<aside>
 					<p>But this is</p>
+					<p>Function, Array, etc. have prototype "Object"</p>
 				</aside>										
 			</article>
 
@@ -327,7 +328,6 @@ JavaScript outside your browser</title>
 
 				<ul>
 					<li>Lookup chain ("Inheritance")</li>
-					<li>Function, Array, etc. have prototype "Object"</li>
 				</ul>
 				
 <pre>
@@ -679,7 +679,7 @@ var bar = JSON.parse(foo);
 			</article>					
 			
 			<article class="">
-				<h3>Goolge v8</h3>			
+				<h3>Google v8</h3>			
 				<ul>
 					<li>part of Google Chrome web browser</li>
 					<li>compiles JavaScript to native machine code before execution</li>
@@ -897,7 +897,7 @@ server.listen(1337, "127.0.0.1");
 				<h3>Structure: CommonJS Module System</h3>
 <pre>
 // config.js
-exports.echoServer = {port: 1337}
+exports.port = 1337;
 </pre>
 
 <pre>
@@ -984,7 +984,7 @@ io.sockets.on('connection', function (socket) {
 			<article>
 				<h3>request</h3>
 
-<pre style="margin-top:0px; font-size:17px;">
+<pre style="margin-top:30px; font-size:17px;">
 var options = {
   url: 'http://foo/login',
   form: {'email': 'john@doe.de', 'password' : 'mypw'}

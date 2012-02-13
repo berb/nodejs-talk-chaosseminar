@@ -251,8 +251,7 @@ JavaScript outside your browser</title>
 				<h3>Random facts</h3>
 				<ul>
 					<li>Brendan Eich, 1995</li>
-					<li>v1.8, 2008</li>
-					<li>ECMAScript 5</li>
+					<li>ECMAScript 5.1 (June 2011)</li>
 
 					<br />
 					<li>script language</li>
@@ -288,39 +287,66 @@ JavaScript outside your browser</title>
 				<h3>Types: Simple Types</h3>
 				
 				<div  class="build">
-				<div style="float:left; margin-right:125px; padding-top:20px">
-				<ul>
-					<li>Numbers</li>
-					<li>Strings</li>
-					<li>Booleans</li>					
-				</ul>
-				</div>
-
-				<div style="float:left;padding-top:20px; margin-right:125px;">
-				<ul>
-					<li>Object
+					<div style="float:left; margin-right:125px; padding-top:20px">
 						<ul>
-							<li>Function</li>
-							<li>Array</li>
-							<li>Date</li>
-							<li>RegExp</li>
+							<li>Numbers</li>
+							<li>Strings</li>
+							<li>Booleans</li>					
 						</ul>
-					</li>
-				</ul>		
+					</div>
+
+					<div style="float:left;padding-top:20px; margin-right:105px;">
+						<ul>
+							<li>Null</li>
+							<li>Undefined</li>
+						</ul>
+					</div>
+
+					<div style="float:left;padding-top:20px; ">
+						<ul>
+							<li>Object
+								<ul>
+									<li>Function</li>
+									<li>Array</li>
+									<li>Date</li>
+									<li>RegExp</li>
+								</ul>
+							</li>
+						</ul>		
+				
+					</div>
+				</div>
 				
 				<aside>
 					<p>But this is</p>
-				</aside>						
-			</div>
-			
-			<div style="float:left;padding-top:20px">
-				<ul>
-					<li>Null</li>
-					<li>Undefined</li>
-				</ul>
-			</div>
-		</div>
+				</aside>										
 			</article>
+
+			<article>
+				<h3>Prototypes</h3>
+
+				<ul>
+					<li>Lookup chain ("Inheritance")</li>
+					<li>Function, Array, etc. have prototype "Object"</li>
+				</ul>
+				
+<pre>
+Array.prototype.inArray = function(value) {
+	for (var index in this) { /* ... */ }
+}
+
+[1,2,4].inArray(3);
+
+delete song.artist	
+
+hasOwnProperty();
+</pre>
+				
+				<aside>
+					<p>non-existing property results in a lookup on the prototype</p>
+					<p>hasOwnProperty()</p>
+				</aside>
+			</article>			
 
 			<article>
 				<h3>Object Literals</h3>
@@ -377,21 +403,6 @@ var song = {
 doItAsynchronously(foo, bar, callback);</pre>
 
 				<p>JavaScript intrinsically supports event-oriented programming!</p> 
-			</article>
-
-			<article>
-				<h3>Prototypes</h3>
-
-				<ul>
-					<li>"Inheritance"</li>
-					<li>Lookup chain</li>
-					<li>Function, Array, etc. have prototype "Object"</li>
-				</ul>
-				
-				<aside>
-					<p>non-existing property results in a lookup on the prototype</p>
-					<p>hasOwnProperty()</p>
-				</aside>
 			</article>
 			
 			<article class="build">

@@ -258,15 +258,16 @@ JavaScript outside your browser</title>
 				</ul>
 				
 				<aside>
-					<p>hint on palm, ms desktop apps in the future, etc.</p>
-					<p>Many maney money put into optimization &amp; development in the last years (Chrome, Mozilla: Tracemonkey)</p>
+					<p>Hint on palm, xul, qml, desktop apps in the future</p>
+					<p>Many maney money put into optimization &amp; development in the last years</p>
+					<p>(Chrome, Mozilla: Tracemonkey)</p>
 				</aside>
 			</article>
 			
 			<article>
 				<h3>Types: Simple Types</h3>
 				<ul>
-					<li><code>Number</code>s</li>
+					<li>Numbers</li>
 					<li>Strings</li>
 					<li>Booleans</li>
 					<li>Function</li>
@@ -274,7 +275,7 @@ JavaScript outside your browser</title>
 				</ul>
 				
 				<aside>
-					<p>Number is 64 Bit Double</p>
+					<p>Well that's not exactly correct</p>
 				</aside>
 			</article>
 
@@ -300,7 +301,11 @@ JavaScript outside your browser</title>
 							<li>RegExp</li>
 						</ul>
 					</li>
-				</ul>				
+				</ul>		
+				
+				<aside>
+					<p>But this is</p>
+				</aside>						
 			</div>
 			
 			<div style="float:left;padding-top:20px">
@@ -352,15 +357,16 @@ var song = {
 				<div class='source'>http://en.wikipedia.org/wiki/First-class_citizen</div>
 				
 				<aside>
-					<p>Note: JS is not exactly a "functional language" because the whole construction is
-						completely based around Prototypes and dynamic objects</p>
+					<p>JS is not exactly a "functional language"
+					<p>the whole construction is based around Prototypes and dynamic objects</p>
+					<p>not around functions</p>
 				</aside>
 			</article>
 
 			<article>
 				<h3>Callback Functions</h3>
 <pre style='font-size:19px;'>var callback = function(result) {
-	//...
+  //...
 };
 
 doItAsynchronously(foo, bar, callback);</pre>
@@ -377,15 +383,41 @@ doItAsynchronously(foo, bar, callback);</pre>
 					<li>Function, Array, etc. have prototype "Object"</li>
 				</ul>
 				
-				
 				<aside>
 					<p>non-existing property results in a lookup on the prototype</p>
 					<p>hasOwnProperty()</p>
 				</aside>
 			</article>
 			
-			<article>
+			<article class="build">
+				<h3>Interesting usages</h3>
+				
+				<p>Anonymous functions</p>
+<pre>
+setTimeout( function() { /* ... */ }, 1000);
+</pre>
+
+			<p>Closures</p>
+<pre>
+var foo = function() {
+  var value = 42;
+
+  return  {
+    getValue: function() { return this.value }
+  }
+}
+</pre>
+			</article>
+			
+			<article class="build">
 				<h3>Interesting Language Usages</h3>
+					
+			<p>Functions as variables</p>
+<pre>
+var foo = function() {}
+foo();
+execute(foo);
+</pre>
 
 			<p>Cascading</p>
 <pre>
@@ -393,22 +425,6 @@ getBox()
   .setPosition(30, 40)
   .setBorder(1)
   .setVisible(true)
-</pre>
-			</article>
-			
-			<article>
-				<h3>Interesting Language Usages</h3>
-
-			<p>Anonymous functions</p>
-<pre>
-</pre>
-		
-			<p>Closures</p>
-<pre>
-</pre>
-			
-			<p>Functions as variables</p>
-<pre>
 </pre>
 			</article>			
 	

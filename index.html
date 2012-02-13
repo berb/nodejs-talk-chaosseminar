@@ -888,13 +888,21 @@ server.listen(config.port, 'localhost');
 </pre>
 			</article>
 					
-			<article class="fill">
+			<article class="">
 				<h3>Concurrency</h3>
 				
-				TODO<br />
+				<ul>
+					<li>good: there is only on thread</li>
+					<li>bad: what about multicode?</li>
+				</ul>
 				
-				falls das vorher noch nicht kam: 
-				child_process.fork() bzw. http://nodejs.org/docs/latest/api/cluster.html
+				<h4>Utilizing Multiple Cores</h4>
+				<ul>
+					<li>run multiple instances (you don't have state, do you?)</li>
+					<li>use built-ins: <code>process</code>, <code>cluster</code>, <code>child_process</code> </li>
+					<li>if necessary, use a message queue (e.g. ØMQ)</li>
+				</ul>
+				
 			</article>
 					
 			<article class="fill">
@@ -1051,7 +1059,103 @@ jsdom.env({
 					<li>express</li>
 				</ul>
 			</article>
+
+			<article class="fill">
+				<h1>node.js is no Silver Bullet</h1>
+				<h3>Told you so.</h3>				
+			</article>
+
+			<article>
+				<h3>Event Loop = Inversion of Control</h3>
+				<ul>
+					<li>flow of execution !== code sequence</li>
+					<li>sequence of async code === callback chaining</li>
+				</ul>
+			</article>
+			
+
+			<article class="">
+				<h3>*SCNR*</h3>
+				<img class='centered nofill' src='assets/images/memes/ya_callback.jpg' style='width:700px;'>		
+			</article>			
+
+			<article class="smaller">
+				<h3>Welcome to the Callback Hell!</h3>
+<pre>
+doA(foo, function (err, a) {
+    doB(bar, function (err, b) {
+        doC(bla, function (err, c) {
+            doD(4, function (err, d) {
+                doE(d, function (err, e) {
+                    doF(e++, function (err, f) {
+                        //THIS IS SPA…GHETTI!
+                    });
+                });
+            });
+        });
+    });
+});
+</pre>			
+<div class="build">
+			<img class='' src='assets/images/memes/mog.png' style='width:200px;'>		
+			</div>	
+			</article>
+			
+			<article class="smaller">
+				<h3>Countermeasures</h3>
+				<h4>Continuation-Passing Style</h4>
+				Example: Identity Function
+<pre>
+function id(x) {
+  return x;
+}
+</pre>	
+<pre>
+function id(x,cp) {
+  cp(x);
+}
+</pre>		
+<p>Chain the calls, pass a final "continuated" callback for completition:</p>			
+
+<pre>
+fn2( fn1( 123 ))  //regular chaining
+fn1(123, fn2)     //CPS style
+</pre>		
+			</article>			
+			
+			<article class="smaller">
+				<h3>Countermeasures</h3>
+				<h4>Dedicated Libraries (i.e. async)</h4>
+<pre>
+async.waterfall([
+    function(callback){
+        callback(null, 'one', 'two');
+    },
+    function(arg1, arg2, callback){
+        callback(null, 'three');
+    },
+    function(arg1, callback){
+        // arg1 now equals 'three'
+        callback(null, 'done');
+    }
+], function (err, result) {
+   // result now equals 'done'    
+});				
+</pre>					
+			</article>		
+			
+			<article>
+				<h3>Other Caveats</h3>
+				<ul>
+					<li>single-threaded => no direct multi-core usage</li>
+					<li>never use blocking calls</li>
+					<li>don't run CPU-bound tasks on the event loop</li>
+					<li>node.js still changes fast!</li>
+				</ul>
+			</article>	
+
 		</section>
+		
 
 
 		<!-- -->
@@ -1091,7 +1195,7 @@ jsdom.env({
 			</article>					
 					
 			<article class="">
-				<h3>Companies</h3>			
+				<h3>Companies Using node.js in Production</h3>			
 
 				<p>
 					<img src='assets/logos/mozilla.svg'  style="float:left;" width='200'>

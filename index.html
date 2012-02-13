@@ -1182,10 +1182,12 @@ async.waterfall([
 			<article>
 				<h3>Other Caveats</h3>
 				<ul>
-					<li>single-threaded => no direct multi-core usage</li>
 					<li>never use blocking calls</li>
-					<li>don't run CPU-bound tasks on the event loop</li>
+					<li>don't ever run CPU-bound tasks on the event loop</li>
+				</ul>
+				<ul>
 					<li>node.js still changes fast!</li>
+					<li>mixed maturity of available modules</li>
 				</ul>
 			</article>	
 

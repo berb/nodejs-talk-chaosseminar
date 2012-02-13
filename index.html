@@ -252,20 +252,21 @@ JavaScript outside your browser</title>
 				<ul>
 					<li>Brendan Eich, 1995</li>
 					<li>v1.8, 2008</li>
-					<li>ECMAScript</li>
+					<li>ECMAScript 5</li>
 
 					<br />
 					<li>script language</li>
-					<li>multi-paradigm language: functional, procedural, <br/> oo-<em>alike</em></li>
+					<li>multi-paradigm language:<br />
+						functional, procedural, oo-<em>alike</em></li>
 				</ul>
 				
 				<aside>
 					<p>Hint on palm, xul, qml, desktop apps in the future</p>
 					<p>Many maney money put into optimization &amp; development in the last years</p>
-					<p>(Chrome, Mozilla: Tracemonkey)</p>
+					<p>JS Engines: V8 (Chrome), SpiderMonkey (Firefox), Chakra (IE9)</p>
 				</aside>
 			</article>
-			
+						
 			<article>
 				<h3>Types: Simple Types</h3>
 				<ul>
@@ -277,6 +278,8 @@ JavaScript outside your browser</title>
 				</ul>
 				
 				<aside>
+					<p>atomar, immutable</p>
+					<p>Only Numbers, no Int or Float</p>
 					<p>Well that's not exactly correct</p>
 				</aside>
 			</article>
@@ -551,12 +554,12 @@ null
 
 				<pre>
 // Object as a JSON-String
-JSON.stringify(  {zwei: 2, drei: 3}  );
+JSON.stringify(  {two: 2, three: 3}  );
 </pre>
 
 <pre>
 // String as a JSON-Objekt
-var foo = '{"eins":1, "zwei":"2"}';
+var foo = '{"one":1, "two":"2"}';
 var bar = JSON.parse(foo);
 </pre>
 			<aside>
@@ -1044,12 +1047,31 @@ jsdom.env({
 				</aside>
 			</article>
 
-			<article class="fill">
-				<h3>PCAP</h3>
+			<article class="fill build">
+				<h3>node_pcap</h3>
 				
 				<ul>
-					<li>express</li>
+					<li>Bindings for libpcap</li>
+					<li>Decoding, Analyzing, Printing packets</li>
 				</ul>
+				
+<pre>
+pcap_session.on('packet', function (raw_packet) {
+  var packet = pcap.decode.packet(raw_packet);
+  console.log(packet.link.ip.tcp.dport);
+});
+</pre>
+
+<pre>
+tcp_tracker.on('start', function() {});
+tcp_tracker.on('end', function() {});
+</pre>
+
+				<div class="source">https://github.com/mranney/node_pcap</div>
+				
+				<aside>
+					<p>Mention unencrypted-wifi-slideshow</p>
+				</aside>
 			</article>
 
 			<article class="fill">

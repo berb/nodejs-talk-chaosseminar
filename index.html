@@ -562,7 +562,7 @@ var bar = JSON.parse(foo);
 				<img class="nofill centered" style="width:75%"  src="assets/logos/node.svg">
 				<h1>node.js</h1>
 				<h3>The Basics</h3>				
-			</article>
+			</article>			
 			
 			<article class="">
 				<h3>The Project</h3>			
@@ -817,8 +817,7 @@ io.sockets.on('connection', function (socket) {
 </pre>
 
 </div>
-<div class="source">http://socket.io/</div>
-			
+				<div class="source">http://socket.io/</div>
 			</article>	
 			
 			<article class="fill">
@@ -829,10 +828,39 @@ io.sockets.on('connection', function (socket) {
 			<article class="fill">
 				<h3>request</h3>
 				
+				<q style="margin-top:50px; font-size:30px;">
+					Request is designed to be the simplest way possible to make http calls. 
+					It support HTTPS and follows redirects by default.
+				</q>
+				
+				<div class="source">https://github.com/mikeal/request</div>
+				
 				<aside>
-					<p>Scraping, Crawling, Automization of tasks</p>
+					<p>What can I use it for?</p>
 				</aside>
 			</article>
+		
+			<article class="fill">
+				<h3>request</h3>
+
+<pre style="margin-top:0px; font-size:17px;">
+var options = {
+  url: 'http://foo/login',
+  form: {'email': 'john@doe.de', 'password' : 'mypw'}
+};
+
+request.post(options, function (err, res, body) {
+  request.get('http://foo/orders', function (err, resp, body) {
+    //...
+  });
+});
+</pre>
+
+				<ul>
+					<li>Uses Cookies globally by default</li>
+					<li>Scraping, Crawling, Automization of tasks</li>
+				</ul>
+			</article>			
 			
 			<article class="fill">
 				<h3>jQuery, jsDOM</h3>

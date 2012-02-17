@@ -1,7 +1,8 @@
 # nodejs-talk-chaosseminar
 
-This talk will be held on the 13. February 2012 in Ulm/Germany.
+This talk was hold on the 13. February 2012 in Ulm/Germany.
 
-For more informations on the time and the location please visit 
-[http://ulm.ccc.de/ChaosSeminar/2012/02_node.js](http://ulm.ccc.de/ChaosSeminar/2012/02_node.js).
+The recordings can be viewed here: [http://ulm.ccc.de/ChaosSeminar/2012/02_node.js](http://ulm.ccc.de/ChaosSeminar/2012/02_node.js).
+
+This slides can be viewed in the browser here: http://berb.github.com/nodejs-talk-chaosseminar/#1
 

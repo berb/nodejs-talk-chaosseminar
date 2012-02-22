@@ -1,6 +1,6 @@
 # nodejs-talk-chaosseminar
 
-A  introduction talk to node.js, JavaScript and the basics of event-driven, asynchronous programming. 
+An introduction talk to node.js, JavaScript and the basics of event-driven, asynchronous programming. 
 The slides are in English, the presentation has been in given in German, though.
 
 This talk took place on the February 13th,2012 in Ulm, Germany.
